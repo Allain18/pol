@@ -15,7 +15,7 @@ class Calculator:
             "*": self.mul,
             "/": self.div,
             ".": self.print,
-            "s": self.print_stack
+            "q": self.quit
         }
 
     def main(self):
@@ -90,6 +90,10 @@ class Calculator:
         for i in range(len(self.stack) - 1):
             print("{}, ".format(self.stack[i]), end="")
         print("{}".format(self.stack[-1]))
+
+    def quit(self):
+        """Quit the program"""
+        self.loop = False
 
 
 if __name__ == "__main__":
