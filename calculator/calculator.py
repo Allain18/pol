@@ -11,7 +11,11 @@ class Calculator:
 
         self.operation = {
             "+": self.add,
-            ".": self.print
+            "-": self.sub,
+            "*": self.mul,
+            "/": self.div,
+            ".": self.print,
+            "s": self.print_stack
         }
 
     def main(self):
@@ -46,6 +50,27 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 + value2)
+
+    def sub(self):
+        """Take 2 number from the stack, substracte them and put the result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value1 - value2)
+
+    def mul(self):
+        """Take 2 number from the stack, mul them and put the result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value1 * value2)
+
+    def div(self):
+        """Take 2 number from the stack, divise them and put the result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value1 / value2)
 
     def print(self):
         """Take one number from the stack and print it"""
