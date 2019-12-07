@@ -87,6 +87,7 @@ class Calculator:
 
     def print_stack(self):
         """Print the stack"""
+        if len(self.stack) > 0:
         for i in range(len(self.stack) - 1):
             print("{}, ".format(self.stack[i]), end="")
         print("{}".format(self.stack[-1]))
