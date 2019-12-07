@@ -15,6 +15,9 @@ class Calculator:
             "*": self.mul,
             "/": self.div,
             ".": self.print,
+            "..": self.print_hex,
+            "b": self.print_bin,
+            "s": self.print_stack,
             "q": self.quit
         }
 
@@ -86,12 +89,31 @@ class Calculator:
         if self.check_stack(1):
             print("{}".format(self.stack.pop()))
 
+    def print_hex(self):
+        """Take one number from the stack and print it in hex format"""
+        if self.check_stack(1):
+            i = self.stack.pop()
+            if isinstance(i, int):
+                print("0x{:X}".format(i))
+            else:
+                print(float.hex(i))
+
+    def print_bin(self):
+        """Take one number from the stack and print it in binary format"""
+        if self.check_stack(1):
+            i = self.stack.pop()
+            if isinstance(i, int):
+                print("0b{:b}".format(i))
+            else:
+                self.stack.append(i)
+                print("Not possible to print a float in binary")
+
     def print_stack(self):
         """Print the stack"""
         if len(self.stack) > 0:
-        for i in range(len(self.stack) - 1):
-            print("{}, ".format(self.stack[i]), end="")
-        print("{}".format(self.stack[-1]))
+            for i in range(len(self.stack) - 1):
+                print("{}, ".format(self.stack[i]), end="")
+            print("{}".format(self.stack[-1]))
 
     def quit(self):
         """Quit the program"""
