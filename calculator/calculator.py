@@ -110,14 +110,14 @@ class Calculator:
             self.stack.append(value2 / value1)
 
     def pow(self):
-        """Take 2 number from the stack, divise them and put the result in the stack"""
+        """Take 2 number from the stack, apply power and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
 
     def _and(self):
-        """Take 2 number from the stack, divise them and put the result in the stack"""
+        """Take 2 number from the stack, apply a bitwise "and" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
