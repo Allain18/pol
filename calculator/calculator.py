@@ -65,7 +65,7 @@ class Calculator:
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
-            self.stack.append(value1 - value2)
+            self.stack.append(value2 - value1)
 
     def mul(self):
         """Take 2 number from the stack, mul them and put the result in the stack"""
@@ -79,7 +79,7 @@ class Calculator:
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
-            self.stack.append(value1 / value2)
+            self.stack.append(value2 / value1)
 
     def print(self):
         """Take one number from the stack and print it"""
