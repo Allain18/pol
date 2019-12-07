@@ -39,6 +39,7 @@ class Calculator:
             "..": self.print_hex,
             "b": self.print_bin,
             "s": self.print_stack,
+            "clear": self.clear_stack,
             "q": self.quit
         }
 
@@ -148,6 +149,10 @@ class Calculator:
             for i in range(len(self.stack) - 1):
                 print("{}, ".format(self.stack[i]), end="")
             print("{}".format(self.stack[-1]))
+
+    def clear_stack(self):
+        """Empty the stack"""
+        self.stack = []
 
     def quit(self):
         """Quit the program"""
