@@ -77,6 +77,12 @@ class Calculator:
         if self.check_stack(1):
             print("{}".format(self.stack.pop()))
 
+    def print_stack(self):
+        """Print the stack"""
+        for i in range(len(self.stack) - 1):
+            print("{}, ".format(self.stack[i]), end="")
+        print("{}".format(self.stack[-1]))
+
 
 if __name__ == "__main__":
     CAL = Calculator()
