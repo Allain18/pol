@@ -1,6 +1,25 @@
 """Calculator using the reverse polish notation"""
 
 
+def get_number(num):
+    """if possible return a number, else return num as a string"""
+    for cast in (int, float):
+        try:
+            num = cast(num)
+            return num
+        except ValueError:
+            pass
+
+    for base in (2, 8, 16):
+        try:
+            num = int(num, base)
+            return num
+        except ValueError:
+            pass
+
+    return num
+
+
 class Calculator:
     """Class Calculator"""
 
@@ -33,19 +52,18 @@ class Calculator:
                 data = input(">")
 
                 for i in data.split():
-                    for cast in (int, float):
-                        try:
-                            i = cast(i)
-                            self.stack.append(i)
-                            break
-                        except ValueError:
-                            pass
+                    i = get_number(i)
+                    if isinstance(i, (int, float)):
+                        self.stack.append(i)
 
-                    if isinstance(i, str):
+                    elif isinstance(i, str):
                         if i in self.operation.keys():
                             self.operation[i]()
                         else:
                             print("Unknow command: {}".format(i))
+
+                    else:
+                        raise "Should never happend"
 
         except KeyboardInterrupt:
             pass
