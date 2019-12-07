@@ -28,11 +28,19 @@ class Calculator:
                 data = input(">")
 
                 for i in data.split():
-                    try:
-                        i = int(i)
-                        self.stack.append(i)
-                    except ValueError:
-                        self.operation[i]()
+                    for cast in (int, float):
+                        try:
+                            i = cast(i)
+                            self.stack.append(i)
+                            break
+                        except ValueError:
+                            pass
+
+                    if isinstance(i, str):
+                        if i in self.operation.keys():
+                            self.operation[i]()
+                        else:
+                            print("Unknow command: {}".format(i))
 
         except KeyboardInterrupt:
             pass
