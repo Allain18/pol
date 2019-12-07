@@ -14,6 +14,8 @@ class Calculator:
             "-": self.sub,
             "*": self.mul,
             "/": self.div,
+            "**": self.pow,
+            "and": self._and,
             ".": self.print,
             "..": self.print_hex,
             "b": self.print_bin,
@@ -83,6 +85,20 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 / value1)
+
+    def pow(self):
+        """Take 2 number from the stack, divise them and put the result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value2 ** value1)
+
+    def _and(self):
+        """Take 2 number from the stack, divise them and put the result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value1 & value2)
 
     def print(self):
         """Take one number from the stack and print it"""
