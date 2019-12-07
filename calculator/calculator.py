@@ -2,7 +2,7 @@
 
 
 def get_number(num):
-    """if possible return a number, else return num as a string"""
+    """If possible return a number, else return num as a string"""
     for cast in (int, float):
         try:
             num = cast(num)
