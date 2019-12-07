@@ -10,7 +10,7 @@ class Calculator:
         self.loop = True
 
         self.operation = {
-            "+": self.plus,
+            "+": self.add,
             ".": self.print
         }
 
@@ -40,7 +40,7 @@ class Calculator:
 
         return True
 
-    def plus(self):
+    def add(self):
         """Take 2 number from the stack, add them and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
