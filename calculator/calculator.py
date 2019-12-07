@@ -48,6 +48,7 @@ class Calculator:
     def check_stack(self, num):
         """Check if enough number are in the stack"""
         if len(self.stack) < num:
+            print("Not enough number in the stack")
             return False
 
         return True
