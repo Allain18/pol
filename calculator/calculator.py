@@ -39,7 +39,7 @@ class Calculator:
             "xor": self.xor,
             ".": self.print,
             "..": self.print_hex,
-            "b": self.print_bin,
+            "bin": self.print_bin,
             "s": self.print_stack,
             "clear": self.clear_stack,
             "q": self.quit
