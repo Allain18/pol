@@ -168,6 +168,9 @@ class Calculator:
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0x{:X}".format(i))
+            elif i.is_integer():
+                i = int(i)
+                print("0x{:X}".format(i))
             else:
                 print(float.hex(i))
 
@@ -176,6 +179,9 @@ class Calculator:
         if self.check_stack(1):
             i = self.stack.pop()
             if isinstance(i, int):
+                print("0b{:b}".format(i))
+            elif i.is_integer():
+                i = int(i)
                 print("0b{:b}".format(i))
             else:
                 self.stack.append(i)
