@@ -28,7 +28,7 @@ class Calculator:
     def __init__(self):
         self.stack = []
 
-        self.loop = True
+        self.loop_flag = True
 
         self.operation = {
             "+": self.add,
@@ -50,13 +50,13 @@ class Calculator:
             "q": self.quit
         }
 
-    def main(self):
+    def loop(self):
         """Fonction principale"""
 
         print("Reverse polish notation calculator")
 
         try:
-            while self.loop:
+            while self.loop_flag:
                 data = input(">")
 
                 for i in data.split():
@@ -200,9 +200,14 @@ class Calculator:
 
     def quit(self):
         """Quit the program"""
-        self.loop = False
+        self.loop_flag = False
+
+
+def main():
+    """Entry point of the program"""
+    cal = Calculator()
+    cal.loop()
 
 
 if __name__ == "__main__":
-    CAL = Calculator()
-    CAL.main()
+    main()
