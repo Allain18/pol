@@ -37,6 +37,7 @@ class Calculator:
             "and": self._and,
             "or": self._or,
             "xor": self.xor,
+            "copy": self.copy,
             ".": self.print,
             "..": self.print_hex,
             "bin": self.print_bin,
@@ -138,6 +139,11 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 ^ value2)
+
+    def copy(self):
+        """Copy the last number of the stack and add it to the stack"""
+        if self.check_stack(1):
+            self.stack.append(self.stack[-1])
 
     def print(self):
         """Take one number from the stack and print it"""
