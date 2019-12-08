@@ -1,5 +1,7 @@
 """Calculator using the reverse polish notation"""
 
+import math
+
 
 def get_number(num):
     """If possible return a number, else return num as a string"""
@@ -38,6 +40,8 @@ class Calculator:
             "or": self._or,
             "xor": self.xor,
             "copy": self.copy,
+            "pi": self.const_pi,
+            "tau": self.const_tau,
             ".": self.print,
             "..": self.print_hex,
             "bin": self.print_bin,
@@ -144,6 +148,14 @@ class Calculator:
         """Copy the last number of the stack and add it to the stack"""
         if self.check_stack(1):
             self.stack.append(self.stack[-1])
+
+    def const_pi(self):
+        """Add pi to the stack"""
+        self.stack.append(math.pi)
+
+    def const_tau(self):
+        """Add tau to the stack"""
+        self.stack.append(math.tau)
 
     def print(self):
         """Take one number from the stack and print it"""
