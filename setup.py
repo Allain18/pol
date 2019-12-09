@@ -28,6 +28,7 @@ setup(
         "Operating System :: OS Independent"
     ],
     test_suite="test",
+    packages=["calculator"],
     entry_points={
         "console_scripts": [
             "pol=calculator.calculator:main",
