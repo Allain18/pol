@@ -1,6 +1,6 @@
 """Setup script for the package"""
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -28,7 +28,7 @@ setup(
         "Operating System :: OS Independent"
     ],
     test_suite="test",
-    packages=["calculator"],
+    packages=find_packages(),
     entry_points={
         "console_scripts": [
             "pol=calculator.calculator:main",
