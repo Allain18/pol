@@ -90,28 +90,28 @@ class Calculator:
         return True
 
     def add(self):
-        """Take 2 number from the stack, add them and put the result in the stack"""
+        """Take 2 numbers from the stack, add them and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 + value2)
 
     def sub(self):
-        """Take 2 number from the stack, substracte them and put the result in the stack"""
+        """Take 2 numbers from the stack, substracte them and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 - value1)
 
     def mul(self):
-        """Take 2 number from the stack, mul them and put the result in the stack"""
+        """Take 2 numbers from the stack, mul them and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 * value2)
 
     def div(self):
-        """Take 2 number from the stack, divise them and put the result in the stack"""
+        """Take 2 numbers from the stack, divise them and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             if value1 == 0:
@@ -122,28 +122,28 @@ class Calculator:
             self.stack.append(value2 / value1)
 
     def pow(self):
-        """Take 2 number from the stack, apply power and put the result in the stack"""
+        """Take 2 numbers from the stack, apply power and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
 
     def _and(self):
-        """Take 2 number from the stack, apply a bitwise "and" and put the result in the stack"""
+        """Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 & value2)
 
     def _or(self):
-        """Take 2 number from the stack, apply a bitwise "or" and put the result in the stack"""
+        """Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 | value2)
 
     def xor(self):
-        """Take 2 number from the stack, apply a bitwise "xor" and put the result in the stack"""
+        """Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
