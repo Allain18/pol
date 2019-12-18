@@ -1,5 +1,9 @@
 """Test file for the calculator"""
+
+import sys
 import unittest
+from io import StringIO
+
 from calculator.calculator import Calculator, get_number
 
 
@@ -7,6 +11,8 @@ class TestCalculator(unittest.TestCase):
     """Test for the Calculator"""
 
     def setUp(self):
+        self.stdout = StringIO()
+        sys.stdout = self.stdout
         self.cal = Calculator()
 
     def test_get_number(self):
@@ -37,6 +43,7 @@ class TestCalculator(unittest.TestCase):
         self.cal.stack.append(5)
         self.cal.stack.append(0)
         self.cal.div()
+        self.assertEqual(self.stdout.getvalue(), "Impossible to divise by 0\n")
         self.assertEqual(len(self.cal.stack), 2)
 
     def test_pow(self):
