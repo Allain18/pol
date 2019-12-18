@@ -120,6 +120,34 @@ class TestCalculator(unittest.TestCase):
         self.cal.xor()
         self.assertEqual(self.cal.stack.pop(), 8)
 
+    def test_absolute_value(self):
+        """Test absolute_value method"""
+        self.cal.stack.append(5)
+        self.cal.absolute_value()
+        self.assertEqual(self.cal.stack.pop(), 5)
+
+        self.cal.stack.append(-12.3)
+        self.cal.absolute_value()
+        self.assertEqual(self.cal.stack.pop(), 12.3)
+
+    def test_inv(self):
+        """Test inv method"""
+        self.cal.stack.append(4)
+        self.cal.inv()
+        self.assertEqual(self.cal.stack.pop(), 0.25)
+
+        self.cal.stack.append(-0.1)
+        self.cal.inv()
+        self.assertEqual(self.cal.stack.pop(), -10)
+
+    def test_switch(self):
+        """Test switch method"""
+        self.cal.clear_stack()
+        self.cal.stack.append(-25)
+        self.cal.stack.append(32.2)
+        self.cal.switch()
+        self.assertEqual(self.cal.stack, [32.2, -25])
+
     def test_copy(self):
         """Test copy method"""
         self.cal.clear_stack()
