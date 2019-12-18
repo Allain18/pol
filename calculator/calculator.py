@@ -39,6 +39,8 @@ class Calculator:
             "and": self._and,
             "or": self._or,
             "xor": self.xor,
+            "<<": self.shift_left,
+            ">>": self.shift_right,
             "abs": self.absolute_value,
             "inv": self.inv,
             "switch": self.switch,
@@ -146,6 +148,30 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 ^ value2)
+
+    def shift_left(self):
+        """Take 2 numbers from the stack, apply a left shift and put the result in the stack"""
+        if self.check_stack(2):
+            value2 = self.stack.pop()
+            value1 = self.stack.pop()
+            if isinstance(value1, int) and isinstance(value2, int):
+                self.stack.append(value1 << value2)
+            else:
+                print("This operation requires 2 int")
+                self.stack.append(value1)
+                self.stack.append(value2)
+
+    def shift_right(self):
+        """Take 2 numbers from the stack, apply a right shift and put the result in the stack"""
+        if self.check_stack(2):
+            value2 = self.stack.pop()
+            value1 = self.stack.pop()
+            if isinstance(value1, int) and isinstance(value2, int):
+                self.stack.append(value1 >> value2)
+            else:
+                print("This operation requires 2 int")
+                self.stack.append(value1)
+                self.stack.append(value2)
 
     def absolute_value(self):
         """Make absolute the last value of the stack"""
