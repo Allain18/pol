@@ -39,6 +39,9 @@ class Calculator:
             "and": self._and,
             "or": self._or,
             "xor": self.xor,
+            "abs": self.absolute_value,
+            "inv": self.inv,
+            "switch": self.switch,
             "copy": self.copy,
             "pi": self.const_pi,
             "tau": self.const_tau,
@@ -143,6 +146,25 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 ^ value2)
+
+    def absolute_value(self):
+        """Make absolute the last value of the stack"""
+        if self.check_stack(1):
+            self.stack.append(abs(self.stack.pop()))
+
+    def inv(self):
+        """Inverse the last number of the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            self.stack.append(1 / value)
+
+    def switch(self):
+        """Switch the last 2 numbers of the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            value2 = self.stack.pop()
+            self.stack.append(value1)
+            self.stack.append(value2)
 
     def copy(self):
         """Copy the last number of the stack and add it to the stack"""
