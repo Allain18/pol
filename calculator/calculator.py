@@ -43,6 +43,9 @@ class Calculator:
             ">>": self.shift_right,
             "abs": self.absolute_value,
             "inv": self.inv,
+            "sin": self.sin,
+            "cos": self.cos,
+            "tan": self.tan,
             "switch": self.switch,
             "copy": self.copy,
             "pi": self.const_pi,
@@ -183,6 +186,21 @@ class Calculator:
         if self.check_stack(1):
             value = self.stack.pop()
             self.stack.append(1 / value)
+
+    def sin(self):
+        """Replace the last number in the stack with the sine of itself (measured in radians)"""
+        if self.check_stack(1):
+            self.stack.append(math.sin(self.stack.pop()))
+
+    def cos(self):
+        """Replace the last number in the stack with the cosine of itself (measured in radians)"""
+        if self.check_stack(1):
+            self.stack.append(math.cos(self.stack.pop()))
+
+    def tan(self):
+        """Replace the last number in the stack with the tangent of itself (measured in radians)"""
+        if self.check_stack(1):
+            self.stack.append(math.tan(self.stack.pop()))
 
     def switch(self):
         """Switch the last 2 numbers of the stack"""
