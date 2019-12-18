@@ -2,21 +2,25 @@
 Command line calculator with reverse polish notation
 
 ## List of commands
-__"+"__: Take 2 number from the stack, add them and put the result in the stack
+__"+"__: Take 2 numbers from the stack, add them and put the result in the stack
 
-__"-"__: Take 2 number from the stack, substracte them and put the result in the stack
+__"-"__: Take 2 numbers from the stack, substracte them and put the result in the stack
 
-__"*"__: Take 2 number from the stack, mul them and put the result in the stack
+__"*"__: Take 2 numbers from the stack, mul them and put the result in the stack
 
-__"/"__: Take 2 number from the stack, divise them and put the result in the stack
+__"/"__: Take 2 numbers from the stack, divise them and put the result in the stack
 
-__"**"__: Take 2 number from the stack, apply power and put the result in the stack
+__"**"__: Take 2 numbers from the stack, apply power and put the result in the stack
 
-__"and"__: Take 2 number from the stack, apply a bitwise "and" and put the result in the stack
+__"and"__: Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack
 
-__"or"__: Take 2 number from the stack, apply a bitwise "or" and put the result in the stack
+__"or"__: Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack
 
-__"xor"__: Take 2 number from the stack, apply a bitwise "xor" and put the result in the stack
+__"xor"__: Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack
+
+__"<<"__: Take 2 numbers from the stack, apply a left shift and put the result in the stack
+
+__">>"__: Take 2 numbers from the stack, apply a right shift and put the result in the stack
 
 __"abs"__: Make absolute the last value of the stack
 
@@ -41,7 +45,6 @@ __"s"__: Print the stack
 __"clear"__: Empty the stack
 
 __"q"__: Quit the program
-
 
 ## License
 
