@@ -130,5 +130,46 @@ class TestCalculator(unittest.TestCase):
         self.cal.copy()
         self.assertEqual(self.cal.stack, [10, 10])
 
+    def test_print(self):
+        """Test print method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10.2)
+
+        self.cal.print()
+        self.cal.print()
+
+        self.assertEqual(self.stdout.getvalue(), "10.2\n5\n")
+
+    def test_print_hex(self):
+        """Test print_hex_method"""
+        self.cal.stack.append(500)
+        self.cal.stack.append(10.0)
+
+        self.cal.print_hex()
+        self.cal.print_hex()
+
+        self.assertEqual(self.stdout.getvalue(), "0xA\n0x1F4\n")
+
+    def test_print_bin(self):
+        """Test print_bin_method"""
+        self.cal.stack.append(500)
+        self.cal.stack.append(10.0)
+
+        self.cal.print_bin()
+        self.cal.print_bin()
+
+        self.assertEqual(self.stdout.getvalue(), "0b1010\n0b111110100\n")
+
+    def test_print_stack(self):
+        """Test print_stack"""
+        self.cal.stack.append(500)
+        self.cal.stack.append(10.0)
+        self.cal.stack.append(123.123)
+
+        self.cal.print_stack()
+
+        self.assertEqual(self.stdout.getvalue(), "500, 10.0, 123.123\n")
+
+
 if __name__ == "__main__":
     unittest.main()
