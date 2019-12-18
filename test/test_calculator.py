@@ -120,6 +120,39 @@ class TestCalculator(unittest.TestCase):
         self.cal.xor()
         self.assertEqual(self.cal.stack.pop(), 8)
 
+    def test_shift_left(self):
+        """Test shift_left method"""
+        self.cal.stack.append(55)
+        self.cal.stack.append(2)
+        self.cal.shift_left()
+        self.assertEqual(self.cal.stack.pop(), 220)
+
+        self.cal.stack.append(10)
+        self.cal.stack.append(5.2)
+        self.cal.shift_left()
+        self.assertEqual(self.stdout.getvalue(),
+                         "This operation requires 2 int\n")
+        self.assertEqual(self.cal.stack, [10, 5.2])
+
+    def test_shift_right(self):
+        """Test shift_right method"""
+        self.cal.stack.append(55)
+        self.cal.stack.append(2)
+        self.cal.shift_right()
+        self.assertEqual(self.cal.stack.pop(), 13)
+
+        self.cal.stack.append(2)
+        self.cal.stack.append(5)
+        self.cal.shift_right()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+        self.cal.stack.append(10)
+        self.cal.stack.append(5.2)
+        self.cal.shift_right()
+        self.assertEqual(self.stdout.getvalue(),
+                         "This operation requires 2 int\n")
+        self.assertEqual(self.cal.stack, [10, 5.2])
+
     def test_absolute_value(self):
         """Test absolute_value method"""
         self.cal.stack.append(5)
