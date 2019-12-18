@@ -44,8 +44,6 @@ class TestCalculator(unittest.TestCase):
 
     def test_mul(self):
         """Test mul method"""
-        self.cal.stack.clear()
-
         self.cal.stack.append(5)
         self.cal.stack.append(-10)
         self.cal.mul()
@@ -58,8 +56,6 @@ class TestCalculator(unittest.TestCase):
 
     def test_div(self):
         """Test div method"""
-        self.cal.stack.clear()
-
         self.cal.stack.append(5)
         self.cal.stack.append(10)
         self.cal.div()
@@ -175,7 +171,6 @@ class TestCalculator(unittest.TestCase):
 
     def test_switch(self):
         """Test switch method"""
-        self.cal.clear_stack()
         self.cal.stack.append(-25)
         self.cal.stack.append(32.2)
         self.cal.switch()
@@ -183,7 +178,6 @@ class TestCalculator(unittest.TestCase):
 
     def test_copy(self):
         """Test copy method"""
-        self.cal.clear_stack()
         self.cal.copy()
         self.assertEqual(self.cal.stack, [])
 
