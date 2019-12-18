@@ -2,6 +2,7 @@
 
 import sys
 import unittest
+import math
 from io import StringIO
 
 from calculator.calculator import Calculator, get_number
@@ -22,6 +23,8 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(get_number("0x10"), 16)
         self.assertEqual(get_number("0o10"), 8)
         self.assertEqual(get_number("0.25"), 0.25)
+        self.assertEqual(get_number("aaa"), 2730)
+        self.assertEqual(get_number("alc"), "alc")
 
     def test_add(self):
         """Test add method"""
@@ -169,6 +172,36 @@ class TestCalculator(unittest.TestCase):
         self.cal.inv()
         self.assertEqual(self.cal.stack.pop(), -10)
 
+    def test_sin(self):
+        """Test sin method"""
+        self.cal.stack.append(0)
+        self.cal.sin()
+        self.assertEqual(self.cal.stack.pop(), 0.0)
+
+        self.cal.stack.append(math.pi / 2)
+        self.cal.sin()
+        self.assertEqual(self.cal.stack.pop(), 1.0)
+
+    def test_cos(self):
+        """Test cos method"""
+        self.cal.stack.append(0)
+        self.cal.cos()
+        self.assertEqual(self.cal.stack.pop(), 1.0)
+
+        self.cal.stack.append(math.pi / 2)
+        self.cal.cos()
+        self.assertAlmostEqual(self.cal.stack.pop(), 0.0)
+
+    def test_tan(self):
+        """Test tan method"""
+        self.cal.stack.append(0)
+        self.cal.tan()
+        self.assertEqual(self.cal.stack.pop(), 0.0)
+
+        self.cal.stack.append(math.pi / 4)
+        self.cal.tan()
+        self.assertAlmostEqual(self.cal.stack.pop(), 1.0)
+
     def test_switch(self):
         """Test switch method"""
         self.cal.stack.append(-25)
@@ -199,21 +232,28 @@ class TestCalculator(unittest.TestCase):
         """Test print_hex_method"""
         self.cal.stack.append(500)
         self.cal.stack.append(10.0)
+        self.cal.stack.append(12.2)
 
         self.cal.print_hex()
         self.cal.print_hex()
+        self.cal.print_hex()
 
-        self.assertEqual(self.stdout.getvalue(), "0xA\n0x1F4\n")
+        self.assertEqual(self.stdout.getvalue(),
+                         "0x1.8666666666666p+3\n0xA\n0x1F4\n")
 
     def test_print_bin(self):
         """Test print_bin_method"""
         self.cal.stack.append(500)
         self.cal.stack.append(10.0)
+        self.cal.stack.append(2.5)
 
+        self.cal.print_bin()
+        self.cal.stack.pop()
         self.cal.print_bin()
         self.cal.print_bin()
 
-        self.assertEqual(self.stdout.getvalue(), "0b1010\n0b111110100\n")
+        self.assertEqual(self.stdout.getvalue(),
+                         "Not possible to print a float in binary\n0b1010\n0b111110100\n")
 
     def test_print_stack(self):
         """Test print_stack"""
