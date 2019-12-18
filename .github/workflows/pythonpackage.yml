@@ -20,7 +20,7 @@ jobs:
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint --extension-pkg-whitelist=PyQt5 --msg-template='{line},{column},{category},{symbol}:{msg}' --reports=n calculator/ setup.py
+        pylint --extension-pkg-whitelist=PyQt5 --msg-template='{line},{column},{category},{symbol}:{msg}' --reports=n calculator/ test/ get_commands.py setup.py
     - name: Test with unittest
       run: |
         python -m unittest
