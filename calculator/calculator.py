@@ -215,6 +215,8 @@ class Calculator:
             for i in range(len(self.stack) - 1):
                 print("{}, ".format(self.stack[i]), end="")
             print("{}".format(self.stack[-1]))
+        else:
+            print()
 
     def clear_stack(self):
         """Empty the stack"""
