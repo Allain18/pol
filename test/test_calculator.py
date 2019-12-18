@@ -30,6 +30,32 @@ class TestCalculator(unittest.TestCase):
         self.cal.add()
         self.assertEqual(self.cal.stack.pop(), 15)
 
+    def test_sub(self):
+        """Test sub method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal.sub()
+        self.assertEqual(self.cal.stack.pop(), -5)
+
+        self.cal.stack.append(25.5)
+        self.cal.stack.append(10)
+        self.cal.sub()
+        self.assertEqual(self.cal.stack.pop(), 15.5)
+
+    def test_mul(self):
+        """Test mul method"""
+        self.cal.stack.clear()
+
+        self.cal.stack.append(5)
+        self.cal.stack.append(-10)
+        self.cal.mul()
+        self.assertEqual(self.cal.stack.pop(), -50)
+
+        self.cal.stack.append(0)
+        self.cal.stack.append(-10)
+        self.cal.mul()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
     def test_div(self):
         """Test div method"""
         self.cal.stack.clear()
@@ -58,6 +84,51 @@ class TestCalculator(unittest.TestCase):
         self.cal.pow()
         self.assertEqual(self.cal.stack.pop(), 1)
 
+    def test_and(self):
+        """Test _and method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal._and()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+        self.cal.stack.append(7)
+        self.cal.stack.append(15)
+        self.cal._and()
+        self.assertEqual(self.cal.stack.pop(), 7)
+
+    def test_or(self):
+        """Test _or method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal._or()
+        self.assertEqual(self.cal.stack.pop(), 15)
+
+        self.cal.stack.append(7)
+        self.cal.stack.append(15)
+        self.cal._or()
+        self.assertEqual(self.cal.stack.pop(), 15)
+
+    def test_xor(self):
+        """Test xor method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal.xor()
+        self.assertEqual(self.cal.stack.pop(), 15)
+
+        self.cal.stack.append(7)
+        self.cal.stack.append(15)
+        self.cal.xor()
+        self.assertEqual(self.cal.stack.pop(), 8)
+
+    def test_copy(self):
+        """Test copy method"""
+        self.cal.clear_stack()
+        self.cal.copy()
+        self.assertEqual(self.cal.stack, [])
+
+        self.cal.stack.append(10)
+        self.cal.copy()
+        self.assertEqual(self.cal.stack, [10, 10])
 
 if __name__ == "__main__":
     unittest.main()
