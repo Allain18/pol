@@ -57,3 +57,7 @@ class TestCalculator(unittest.TestCase):
         self.cal.stack.append(0)
         self.cal.pow()
         self.assertEqual(self.cal.stack.pop(), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
