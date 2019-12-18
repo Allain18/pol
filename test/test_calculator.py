@@ -196,7 +196,10 @@ class TestCalculator(unittest.TestCase):
 
         self.cal.print_stack()
 
-        self.assertEqual(self.stdout.getvalue(), "500, 10.0, 123.123\n")
+        self.cal.clear_stack()
+        self.cal.print_stack()
+
+        self.assertEqual(self.stdout.getvalue(), "500, 10.0, 123.123\n\n")
 
 
 if __name__ == "__main__":
