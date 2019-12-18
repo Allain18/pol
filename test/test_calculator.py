@@ -7,6 +7,8 @@ from io import StringIO
 
 from calculator.calculator import Calculator, get_number
 
+# pylint: disable=R0904
+
 
 class TestCalculator(unittest.TestCase):
     """Test for the Calculator"""
@@ -87,11 +89,13 @@ class TestCalculator(unittest.TestCase):
         """Test _and method"""
         self.cal.stack.append(5)
         self.cal.stack.append(10)
+        # pylint: disable=W0212
         self.cal._and()
         self.assertEqual(self.cal.stack.pop(), 0)
 
         self.cal.stack.append(7)
         self.cal.stack.append(15)
+        # pylint: disable=W0212
         self.cal._and()
         self.assertEqual(self.cal.stack.pop(), 7)
 
@@ -99,11 +103,13 @@ class TestCalculator(unittest.TestCase):
         """Test _or method"""
         self.cal.stack.append(5)
         self.cal.stack.append(10)
+        # pylint: disable=W0212
         self.cal._or()
         self.assertEqual(self.cal.stack.pop(), 15)
 
         self.cal.stack.append(7)
         self.cal.stack.append(15)
+        # pylint: disable=W0212
         self.cal._or()
         self.assertEqual(self.cal.stack.pop(), 15)
 
