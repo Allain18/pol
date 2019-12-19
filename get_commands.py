@@ -8,7 +8,7 @@ def main():
 
     doc = ""
     for command, method in calculator.Calculator().operation.items():
-        doc += "__\"{}\"__: {}\n\n".format(command, method.__doc__)
+        doc += "`{}` : {}\n\n".format(command, method.__doc__)
 
     with open("README.md", "r") as readme:
         list_readme = readme.read().split("## List of commands\n")
