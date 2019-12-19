@@ -8,7 +8,11 @@ python:
 
 # command to install dependencies
 install:
-  - python setup.py install
+  - pip install pylint
+  - pip install .
 
 # command to run tests
-script: python -m unittest
+script: 
+  - pylint --disable=R0904 calculator/ test/ setup.py get_commands.py
+  - python -m unittest
+ 
