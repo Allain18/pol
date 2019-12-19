@@ -21,7 +21,7 @@ def get_number(num):
 
     return num
 
-# pylint: disable=R0904
+
 class Calculator:
     """Class Calculator"""
 

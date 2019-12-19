@@ -7,8 +7,6 @@ from io import StringIO
 
 from calculator.calculator import Calculator, get_number
 
-# pylint: disable=R0904
-
 
 class TestCalculator(unittest.TestCase):
     """Test for the Calculator"""
