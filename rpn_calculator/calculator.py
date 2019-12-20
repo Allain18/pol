@@ -1,6 +1,7 @@
 """Calculator using the reverse polish notation"""
 
 import math
+import sys
 
 
 def get_number(num):
@@ -347,8 +348,13 @@ class Calculator:
 
 def main():
     """Entry point of the program"""
-    cal = Calculator()
-    cal.loop()
+    if len(sys.argv) == 1:
+        cal = Calculator()
+        cal.loop()
+    else:
+        print("Usage: {}".format("pol"))
+        print("Calculator using reverse polish notation")
+        print("See README.md for mor info")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,34 @@
 # pol
-Command line calculator with reverse polish notation
+[![Build Status](https://travis-ci.com/Allain18/pol.svg?branch=master)](https://travis-ci.com/Allain18/pol)
+
+Command line calculator using reverse polish notation
+
+## Usage
+As a command line tool: __pol__
+
+pol can also be use as a module
+```python 
+import rpn_calculator
+cal = rpn_calculator.Calculator()
+cal.evaluate("1 2 +")
+# print 3
+```
+
+## Install
+pol can be install from pip
+```
+pip install rpn-calculator
+```
+If you want to install from a source distribution, extract the tarball and run the following command
+```
+python setup.py install
+```
+
+## Documentation
+This README is the Documentation
+
+## [Repo](https://github.com/Allain18/pol)
+The code is on github
 
 ## List of commands
 __"+"__: Take 2 numbers from the stack, add them and put the result in the stack
