@@ -31,49 +31,71 @@ This README is the Documentation
 The code is on github
 
 ## List of commands
-__"+"__: Take 2 numbers from the stack, add them and put the result in the stack
+`+` : Take 2 numbers from the stack, add them and put the result in the stack
 
-__"-"__: Take 2 numbers from the stack, substracte them and put the result in the stack
+`-` : Take 2 numbers from the stack, substracte them and put the result in the stack
 
-__"*"__: Take 2 numbers from the stack, mul them and put the result in the stack
+`*` : Take 2 numbers from the stack, mul them and put the result in the stack
 
-__"/"__: Take 2 numbers from the stack, divise them and put the result in the stack
+`/` : Take 2 numbers from the stack, divise them and put the result in the stack
 
-__"**"__: Take 2 numbers from the stack, apply power and put the result in the stack
+`//` : Take 2 numbers from the stack, divise them and put the integer result in the stack
 
-__"and"__: Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack
+`%` : Take 2 numbers from the stack, divise them and put the remainder in the stack
 
-__"or"__: Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack
+`**` : Take 2 numbers from the stack, apply power and put the result in the stack
 
-__"xor"__: Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack
+`and` : Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack
 
-__"<<"__: Take 2 numbers from the stack, apply a left shift and put the result in the stack
+`or` : Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack
 
-__">>"__: Take 2 numbers from the stack, apply a right shift and put the result in the stack
+`xor` : Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack
 
-__"abs"__: Make absolute the last value of the stack
+`<<` : Take 2 numbers from the stack, apply a left shift and put the result in the stack
 
-__"inv"__: Inverse the last number of the stack
+`>>` : Take 2 numbers from the stack, apply a right shift and put the result in the stack
 
-__"switch"__: Switch the last 2 numbers of the stack
+`abs` : Make absolute the last value of the stack
 
-__"copy"__: Copy the last number of the stack and add it to the stack
+`inv` : Inverse the last number of the stack
 
-__"pi"__: Add pi to the stack
+`neg` : Change the sign of the last number in the stack
 
-__"tau"__: Add tau to the stack
+`sin` : Replace the last number in the stack with the sine of itself (measured in radians)
 
-__"."__: Take one number from the stack and print it
+`cos` : Replace the last number in the stack with the cosine of itself (measured in radians)
 
-__".."__: Take one number from the stack and print it in hex format
+`tan` : Replace the last number in the stack with the tangent of itself (measured in radians)
 
-__"bin"__: Take one number from the stack and print it in binary format
+`asin` : Replace the last number in the stack with the arc sine of itself (measured in radians)
 
-__"s"__: Print the stack
+`acos` : Replace the last number in the stack with the arc cosine of itself
+        (measured in radians)
 
-__"clear"__: Empty the stack
+`atan` : Replace the last number in the stack with the arc tangent of itself
+        (measured in radians)
 
-__"q"__: Quit the program
+`switch` : Switch the last 2 numbers of the stack
+
+`del` : Delete the last number in the stack
+
+`copy` : Copy the last number of the stack and add it to the stack
+
+`pi` : Add pi to the stack
+
+`tau` : Add tau to the stack
+
+`.` : Take one number from the stack and print it
+
+`..` : Take one number from the stack and print it in hex format
+
+`bin` : Take one number from the stack and print it in binary format
+
+`s` : Print the stack
+
+`clear` : Empty the stack
+
+`q` : Quit the program
 
 ## License
 
