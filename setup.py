@@ -24,11 +24,12 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: Implementation :: PyPy",
         "Environment :: Console",
         "Operating System :: OS Independent"
     ],
     test_suite="test",
-    packages=find_packages(),
+    packages=find_packages(exclude=["test"]),
     entry_points={
         "console_scripts": [
             "pol=calculator.calculator:main",
