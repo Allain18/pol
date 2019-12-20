@@ -35,6 +35,8 @@ class Calculator:
             "-": self.sub,
             "*": self.mul,
             "/": self.div,
+            "//": self.int_div,
+            "%": self.modulo,
             "**": self.pow,
             "and": self._and,
             "or": self._or,
@@ -131,6 +133,28 @@ class Calculator:
                 return
             value2 = self.stack.pop()
             self.stack.append(value2 / value1)
+
+    def int_div(self):
+        """Take 2 numbers from the stack, divise them and put the integer result in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            if value1 == 0:
+                print("Impossible to divise by 0")
+                self.stack.append(value1)
+                return
+            value2 = self.stack.pop()
+            self.stack.append(value2 // value1)
+
+    def modulo(self):
+        """Take 2 numbers from the stack, divise them and put the remainder in the stack"""
+        if self.check_stack(2):
+            value1 = self.stack.pop()
+            if value1 == 0:
+                print("Impossible to divise by 0")
+                self.stack.append(value1)
+                return
+            value2 = self.stack.pop()
+            self.stack.append(value2 % value1)
 
     def pow(self):
         """Take 2 numbers from the stack, apply power and put the result in the stack"""

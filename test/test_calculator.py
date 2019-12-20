@@ -71,6 +71,54 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.stdout.getvalue(), "Impossible to divise by 0\n")
         self.assertEqual(len(self.cal.stack), 2)
 
+    def test_int_div(self):
+        """Test int_div method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal.int_div()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+        self.cal.stack.append(15)
+        self.cal.stack.append(10)
+        self.cal.int_div()
+        self.assertEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(-15)
+        self.cal.stack.append(5)
+        self.cal.int_div()
+        self.assertEqual(self.cal.stack.pop(), -3)
+
+        # If div by 0, the stack remains the same
+        self.cal.stack.append(5)
+        self.cal.stack.append(0)
+        self.cal.int_div()
+        self.assertEqual(self.stdout.getvalue(), "Impossible to divise by 0\n")
+        self.assertEqual(len(self.cal.stack), 2)
+
+    def test_modulo(self):
+        """Test modulo method"""
+        self.cal.stack.append(5)
+        self.cal.stack.append(10)
+        self.cal.modulo()
+        self.assertEqual(self.cal.stack.pop(), 5)
+
+        self.cal.stack.append(15)
+        self.cal.stack.append(10)
+        self.cal.modulo()
+        self.assertEqual(self.cal.stack.pop(), 5)
+
+        self.cal.stack.append(-15)
+        self.cal.stack.append(5)
+        self.cal.modulo()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+        # If div by 0, the stack remains the same
+        self.cal.stack.append(5)
+        self.cal.stack.append(0)
+        self.cal.modulo()
+        self.assertEqual(self.stdout.getvalue(), "Impossible to divise by 0\n")
+        self.assertEqual(len(self.cal.stack), 2)
+
     def test_pow(self):
         """Test pow method"""
         self.cal.stack.append(5)
