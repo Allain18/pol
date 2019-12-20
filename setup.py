@@ -13,7 +13,7 @@ setup(
     long_description=README,
     author="Alain Girard",
     author_email="alaingirardvd@gmail.com",
-    url="https://github.com/Allain18/rpncal",
+    url="https://github.com/Allain18/pol",
     license="MIT License",
     keywords="rpn, calculator, reverse polish notation",
     classifiers=[
