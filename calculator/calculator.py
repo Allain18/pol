@@ -51,6 +51,7 @@ class Calculator:
             "acos": self.acos,
             "atan": self.atan,
             "switch": self.switch,
+            "del": self._del,
             "copy": self.copy,
             "pi": self.const_pi,
             "tau": self.const_tau,
@@ -250,6 +251,11 @@ class Calculator:
             value2 = self.stack.pop()
             self.stack.append(value1)
             self.stack.append(value2)
+
+    def _del(self):
+        """Delete the last number in the stack"""
+        if self.check_stack(1):
+            self.stack.pop()
 
     def copy(self):
         """Copy the last number of the stack and add it to the stack"""

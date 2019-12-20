@@ -274,6 +274,14 @@ class TestCalculator(unittest.TestCase):
         self.cal.copy()
         self.assertEqual(self.cal.stack, [10, 10])
 
+    def test_del(self):
+        """Test _del method"""
+        self.cal.const_pi()
+        self.cal.const_tau()
+        # pylint: disable=W0212
+        self.cal._del()
+        self.assertEqual(self.cal.stack, [math.pi])
+
     def test_print(self):
         """Test print method"""
         self.cal.stack.append(5)
