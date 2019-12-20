@@ -43,6 +43,7 @@ class Calculator:
             ">>": self.shift_right,
             "abs": self.absolute_value,
             "inv": self.inv,
+            "neg": self.neg,
             "sin": self.sin,
             "cos": self.cos,
             "tan": self.tan,
@@ -186,6 +187,15 @@ class Calculator:
         if self.check_stack(1):
             value = self.stack.pop()
             self.stack.append(1 / value)
+
+    def neg(self):
+        """Change the sign of the last number in the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value < 0:
+                self.stack.append(abs(value))
+            else:
+                self.stack.append(0 - value)
 
     def sin(self):
         """Replace the last number in the stack with the sine of itself (measured in radians)"""

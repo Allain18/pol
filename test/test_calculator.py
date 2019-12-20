@@ -176,6 +176,16 @@ class TestCalculator(unittest.TestCase):
         self.cal.inv()
         self.assertEqual(self.cal.stack.pop(), -10)
 
+    def test_neg(self):
+        """Test neg method"""
+        self.cal.stack.append(4)
+        self.cal.neg()
+        self.assertEqual(self.cal.stack.pop(), -4)
+
+        self.cal.stack.append(-10.1)
+        self.cal.neg()
+        self.assertEqual(self.cal.stack.pop(), 10.1)
+
     def test_sin(self):
         """Test sin method"""
         self.cal.stack.append(0)
