@@ -47,6 +47,9 @@ class Calculator:
             "sin": self.sin,
             "cos": self.cos,
             "tan": self.tan,
+            "asin": self.asin,
+            "acos": self.acos,
+            "atan": self.atan,
             "switch": self.switch,
             "copy": self.copy,
             "pi": self.const_pi,
@@ -211,6 +214,34 @@ class Calculator:
         """Replace the last number in the stack with the tangent of itself (measured in radians)"""
         if self.check_stack(1):
             self.stack.append(math.tan(self.stack.pop()))
+
+    def asin(self):
+        """Replace the last number in the stack with the arc sine of itself (measured in radians)"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value < -1 or value > 1:
+                print("Number out of domain for asin")
+                self.stack.append(value)
+            else:
+                self.stack.append(math.asin(value))
+
+    def acos(self):
+        """Replace the last number in the stack with the arc cosine of itself
+        (measured in radians)"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value < -1 or value > 1:
+                print("Number out of domain for acos")
+                self.stack.append(value)
+            else:
+                self.stack.append(math.acos(value))
+
+    def atan(self):
+        """Replace the last number in the stack with the arc tangent of itself
+        (measured in radians)"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            self.stack.append(math.atan(value))
 
     def switch(self):
         """Switch the last 2 numbers of the stack"""

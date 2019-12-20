@@ -216,6 +216,48 @@ class TestCalculator(unittest.TestCase):
         self.cal.tan()
         self.assertAlmostEqual(self.cal.stack.pop(), 1.0)
 
+    def test_asin(self):
+        """Test asin method"""
+        self.cal.stack.append(0)
+        self.cal.asin()
+        self.assertEqual(self.cal.stack.pop(), 0.0)
+
+        self.cal.stack.append(1)
+        self.cal.asin()
+        self.assertAlmostEqual(self.cal.stack.pop(), math.pi / 2)
+
+        self.cal.stack.append(-2)
+        self.cal.asin()
+        self.assertAlmostEqual(self.cal.stack.pop(), -2)
+        self.assertEqual(self.stdout.getvalue(),
+                         "Number out of domain for asin\n")
+
+    def test_acos(self):
+        """Test acos method"""
+        self.cal.stack.append(1)
+        self.cal.acos()
+        self.assertEqual(self.cal.stack.pop(), 0.0)
+
+        self.cal.stack.append(0.0)
+        self.cal.acos()
+        self.assertAlmostEqual(self.cal.stack.pop(), math.pi / 2)
+
+        self.cal.stack.append(-2)
+        self.cal.acos()
+        self.assertAlmostEqual(self.cal.stack.pop(), -2)
+        self.assertEqual(self.stdout.getvalue(),
+                         "Number out of domain for acos\n")
+
+    def test_atan(self):
+        """Test atan method"""
+        self.cal.stack.append(1)
+        self.cal.atan()
+        self.assertAlmostEqual(self.cal.stack.pop(), math.pi/4)
+
+        self.cal.stack.append(-1)
+        self.cal.atan()
+        self.assertAlmostEqual(self.cal.stack.pop(), - math.pi/4)
+
     def test_switch(self):
         """Test switch method"""
         self.cal.stack.append(-25)
