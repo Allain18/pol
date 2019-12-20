@@ -332,6 +332,11 @@ class TestCalculator(unittest.TestCase):
 
         self.assertEqual(self.stdout.getvalue(), "500, 10.0, 123.123\n\n")
 
+    def test_evaluate(self):
+        """Test evaluate method"""
+        self.cal.evaluate("5 10 * .")
+        self.assertEqual(self.stdout.getvalue(), "50\n")
+
 
 if __name__ == "__main__":
     unittest.main()

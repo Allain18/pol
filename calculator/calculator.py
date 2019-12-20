@@ -71,23 +71,26 @@ class Calculator:
         try:
             while self.loop_flag:
                 data = input(">")
-
-                for i in data.split():
-                    i = get_number(i)
-                    if isinstance(i, (int, float)):
-                        self.stack.append(i)
-
-                    elif isinstance(i, str):
-                        if i in self.operation.keys():
-                            self.operation[i]()
-                        else:
-                            print("Unknow command: {}".format(i))
-
-                    else:
-                        raise "Should never happend"
+                self.evaluate(data)
 
         except KeyboardInterrupt:
             pass
+
+    def evaluate(self, string):
+        """Evaluate the string and calls adequate method"""
+        for i in string.split():
+            i = get_number(i)
+            if isinstance(i, (int, float)):
+                self.stack.append(i)
+
+            elif isinstance(i, str):
+                if i in self.operation.keys():
+                    self.operation[i]()
+                else:
+                    print("Unknow command: {}".format(i))
+
+            else:
+                raise "Should never happend"
 
     def check_stack(self, num):
         """Check if enough number are in the stack"""
