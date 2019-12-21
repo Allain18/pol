@@ -7,7 +7,7 @@ with open("README.md") as readme_file:
 
 
 setup(
-    name="rpn calculator",
+    name="rpn_calc",
     version="0.1.0",
     description="RPN calculator",
     long_description=README,
