@@ -299,12 +299,12 @@ class Calculator:
         self.stack.append(math.tau)
 
     def print(self):
-        """Take one number from the stack and print it"""
+        """Print the last number of the stack and remove it"""
         if self.check_stack(1):
             print("{}".format(self.stack.pop()))
 
     def print_hex(self):
-        """Take one number from the stack and print it in hex format"""
+        """Print in hexadecimal format the last number of the stack and remove it"""
         if self.check_stack(1):
             i = self.stack.pop()
             if isinstance(i, int):
@@ -316,7 +316,7 @@ class Calculator:
                 print(float.hex(i))
 
     def print_bin(self):
-        """Take one number from the stack and print it in binary format"""
+        """Print in binary format the last number of the stack and remove it"""
         if self.check_stack(1):
             i = self.stack.pop()
             if isinstance(i, int):

@@ -87,11 +87,11 @@ The code is on github
 
 `tau` : Add tau to the stack
 
-`.` : Take one number from the stack and print it
+`.` : Print the last number of the stack and remove it
 
-`..` : Take one number from the stack and print it in hex format
+`..` : Print in hexadecimal format the last number of the stack and remove it
 
-`bin` : Take one number from the stack and print it in binary format
+`bin` : Print in binary format the last number of the stack and remove it
 
 `s` : Print the stack
 
