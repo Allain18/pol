@@ -1,10 +1,12 @@
 # pol
 [![Build Status](https://travis-ci.com/Allain18/pol.svg?branch=master)](https://travis-ci.com/Allain18/pol)
 
-Command line calculator using reverse polish notation
+Command line calculator using [reverse polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
 
 ## Usage
 As a command line tool: __pol__
+
+Instructions are [below](#list-of-commands)
 
 pol can also be use as a module
 ```python 
