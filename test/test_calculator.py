@@ -23,7 +23,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(get_number("0x10"), 16)
         self.assertEqual(get_number("0o10"), 8)
         self.assertEqual(get_number("0.25"), 0.25)
-        self.assertEqual(get_number("aaa"), 2730)
+        self.assertEqual(get_number("0xaaa"), 2730)
         self.assertEqual(get_number("alc"), "alc")
 
     def test_add(self):

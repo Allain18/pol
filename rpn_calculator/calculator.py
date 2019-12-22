@@ -12,13 +12,13 @@ def get_number(num):
             return num
         except ValueError:
             pass
-
-    for base in (2, 8, 16):
-        try:
-            num = int(num, base)
-            return num
-        except ValueError:
-            pass
+    if num[0] == "0":
+        for base in (2, 8, 16):
+            try:
+                num = int(num, base)
+                return num
+            except ValueError:
+                pass
 
     return num
 
