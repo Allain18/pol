@@ -3,8 +3,19 @@
 
 Command line calculator using [reverse polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
 
+Decimal, hexadecimal and binary number are supported
+
 ## Usage
 As a command line tool: __pol__
+
+```
+~$ pol
+Reverse polish notation calculator
+>5 10 * .
+50
+>0xA 0x6 + ..
+0x10
+```
 
 Instructions are [below](#list-of-commands)
 
@@ -12,7 +23,7 @@ pol can also be use as a module
 ```python 
 import rpn_calculator
 cal = rpn_calculator.Calculator()
-cal.evaluate("1 2 +")
+cal.evaluate("1 2 + .")
 # print 3
 ```
 
