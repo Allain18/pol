@@ -60,6 +60,14 @@ The code is on github
 
 `**` : Take 2 numbers from the stack, apply power and put the result in the stack
 
+`exp` : Apply e**x to the last number of the stack
+
+`log10` : Apply log10 to the last number of the stack
+
+`log2` : Apply log2 to the last number of the stack
+
+`ln` : Apply natural logarithm to the last number of the stack
+
 `and` : Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack
 
 `or` : Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack
@@ -99,6 +107,8 @@ The code is on github
 `pi` : Add pi to the stack
 
 `tau` : Add tau to the stack
+
+`e` : Add e to the stack
 
 `.` : Print the last number of the stack and remove it
 

@@ -39,6 +39,10 @@ class Calculator:
             "//": self.int_div,
             "%": self.modulo,
             "**": self.pow,
+            "exp": self.exp,
+            "log10": self.log10,
+            "log2": self.log2,
+            "ln": self.loge,
             "and": self.and_,
             "or": self.or_,
             "xor": self.xor,
@@ -58,6 +62,7 @@ class Calculator:
             "copy": self.copy,
             "pi": self.const_pi,
             "tau": self.const_tau,
+            "e": self.const_e,
             ".": self.print,
             "..": self.print_hex,
             "bin": self.print_bin,
@@ -163,6 +168,42 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
+
+    def exp(self):
+        """Apply e**x to the last number of the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            self.stack.append(math.exp(value))
+
+    def log10(self):
+        """Apply log10 to the last number of the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value > 0:
+                self.stack.append(math.log10(value))
+            else:
+                print("Number out of domain for logarithm")
+                self.stack.append(value)
+
+    def log2(self):
+        """Apply log2 to the last number of the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value > 0:
+                self.stack.append(math.log2(value))
+            else:
+                print("Number out of domain for logarithm")
+                self.stack.append(value)
+
+    def loge(self):
+        """Apply natural logarithm to the last number of the stack"""
+        if self.check_stack(1):
+            value = self.stack.pop()
+            if value > 0:
+                self.stack.append(math.log(value))
+            else:
+                print("Number out of domain for logarithm")
+                self.stack.append(value)
 
     def and_(self):
         """Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack"""
@@ -297,6 +338,10 @@ class Calculator:
     def const_tau(self):
         """Add tau to the stack"""
         self.stack.append(math.tau)
+
+    def const_e(self):
+        """Add e to the stack"""
+        self.stack.append(math.e)
 
     def print(self):
         """Print the last number of the stack and remove it"""

@@ -131,6 +131,48 @@ class TestCalculator(unittest.TestCase):
         self.cal.pow()
         self.assertEqual(self.cal.stack.pop(), 1)
 
+    def test_exp(self):
+        """Test exp method"""
+        self.cal.stack.append(0)
+        self.cal.exp()
+        self.assertEqual(self.cal.stack, [1])
+
+    def test_log10(self):
+        """Test log10 method"""
+        self.cal.stack.append(100)
+        self.cal.log10()
+        self.assertEqual(self.cal.stack.pop(), 2)
+
+        self.cal.stack.append(-5)
+        self.cal.log10()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Number out of domain for logarithm\n")
+        self.assertEqual(self.cal.stack, [-5])
+
+    def test_log2(self):
+        """Test log2 method"""
+        self.cal.stack.append(256)
+        self.cal.log2()
+        self.assertEqual(self.cal.stack.pop(), 8)
+
+        self.cal.stack.append(-5)
+        self.cal.log2()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Number out of domain for logarithm\n")
+        self.assertEqual(self.cal.stack, [-5])
+
+    def test_loge(self):
+        """Test loge method"""
+        self.cal.const_e()
+        self.cal.loge()
+        self.assertEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(-5)
+        self.cal.loge()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Number out of domain for logarithm\n")
+        self.assertEqual(self.cal.stack, [-5])
+
     def test_and(self):
         """Test _and method"""
         self.cal.stack.append(5)
