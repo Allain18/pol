@@ -39,8 +39,8 @@ class Calculator:
             "//": self.int_div,
             "%": self.modulo,
             "**": self.pow,
-            "and": self._and,
-            "or": self._or,
+            "and": self.and_,
+            "or": self.or_,
             "xor": self.xor,
             "<<": self.shift_left,
             ">>": self.shift_right,
@@ -54,7 +54,7 @@ class Calculator:
             "acos": self.acos,
             "atan": self.atan,
             "switch": self.switch,
-            "del": self._del,
+            "del": self.del_,
             "copy": self.copy,
             "pi": self.const_pi,
             "tau": self.const_tau,
@@ -164,14 +164,14 @@ class Calculator:
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
 
-    def _and(self):
+    def and_(self):
         """Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 & value2)
 
-    def _or(self):
+    def or_(self):
         """Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack"""
         if self.check_stack(2):
             value1 = self.stack.pop()
@@ -280,7 +280,7 @@ class Calculator:
             self.stack.append(value1)
             self.stack.append(value2)
 
-    def _del(self):
+    def del_(self):
         """Delete the last number in the stack"""
         if self.check_stack(1):
             self.stack.pop()

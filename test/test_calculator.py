@@ -135,28 +135,24 @@ class TestCalculator(unittest.TestCase):
         """Test _and method"""
         self.cal.stack.append(5)
         self.cal.stack.append(10)
-        # pylint: disable=W0212
-        self.cal._and()
+        self.cal.and_()
         self.assertEqual(self.cal.stack.pop(), 0)
 
         self.cal.stack.append(7)
         self.cal.stack.append(15)
-        # pylint: disable=W0212
-        self.cal._and()
+        self.cal.and_()
         self.assertEqual(self.cal.stack.pop(), 7)
 
     def test_or(self):
         """Test _or method"""
         self.cal.stack.append(5)
         self.cal.stack.append(10)
-        # pylint: disable=W0212
-        self.cal._or()
+        self.cal.or_()
         self.assertEqual(self.cal.stack.pop(), 15)
 
         self.cal.stack.append(7)
         self.cal.stack.append(15)
-        # pylint: disable=W0212
-        self.cal._or()
+        self.cal.or_()
         self.assertEqual(self.cal.stack.pop(), 15)
 
     def test_xor(self):
@@ -326,8 +322,7 @@ class TestCalculator(unittest.TestCase):
         """Test _del method"""
         self.cal.const_pi()
         self.cal.const_tau()
-        # pylint: disable=W0212
-        self.cal._del()
+        self.cal.del_()
         self.assertEqual(self.cal.stack, [math.pi])
 
     def test_print(self):
