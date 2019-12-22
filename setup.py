@@ -28,6 +28,7 @@ setup(
         "Environment :: Console",
         "Operating System :: OS Independent"
     ],
+    python_requires=">=3.6",
     test_suite="test",
     packages=find_packages(exclude=["test"]),
     entry_points={
