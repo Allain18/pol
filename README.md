@@ -15,6 +15,8 @@ Reverse polish notation calculator
 50
 >0xA 0x6 + ..
 0x10
+>q //quit the program
+~$
 ```
 
 Instructions are [below](#list-of-commands)
