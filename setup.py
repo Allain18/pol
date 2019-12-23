@@ -1,6 +1,7 @@
 """Setup script for the package"""
 
 from setuptools import setup, find_packages
+from rpn_calculator import __version__
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -8,7 +9,7 @@ with open("README.md") as readme_file:
 
 setup(
     name="rpn_calc",
-    version="0.1.4",
+    version=__version__,
     description="RPN calculator",
     long_description=README,
     long_description_content_type="text/markdown",
