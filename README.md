@@ -3,7 +3,7 @@
 
 Command line calculator using [reverse polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
 
-Decimal, hexadecimal and binary number are supported
+Decimal, hexadecimal, binary and octal number are supported
 
 ## Usage
 As a command line tool: __pol__
