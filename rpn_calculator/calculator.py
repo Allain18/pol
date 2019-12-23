@@ -2,6 +2,9 @@
 
 import math
 import sys
+import argparse
+
+from .version import __version__
 
 
 def get_number(num):
@@ -393,13 +396,22 @@ class Calculator:
 
 def main():
     """Entry point of the program"""
-    if len(sys.argv) == 1:
-        cal = Calculator()
-        cal.loop()
-    else:
-        print("Usage: {}".format("pol"))
-        print("Calculator using reverse polish notation")
-        print("See README.md for mor info")
+    cal = Calculator()
+
+    doc = "List of commands available:\n\n"
+
+    for command, method in cal.operation.items():
+        doc += "`{}` : {}\n".format(command, method.__doc__)
+
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="A RPN calculator written in python\n"
+        "Support decimal, hexadecimal, binary and octal",
+        epilog=doc)
+
+    args = parser.parse_args()
+
+    cal.loop()
 
 
 if __name__ == "__main__":
