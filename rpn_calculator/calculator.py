@@ -409,7 +409,15 @@ def main():
         "Support decimal, hexadecimal, binary and octal",
         epilog=doc)
 
+    parser.add_argument(
+        "-v", "--version", help="show the version number and exit", action="store_true")
+
     args = parser.parse_args()
+
+    if args.version:
+        print("pol version v{}".format(__version__))
+        print("Python {}".format(sys.version))
+        return
 
     cal.loop()
 
