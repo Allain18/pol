@@ -11,6 +11,7 @@ setup(
     version="0.1.4",
     description="RPN calculator",
     long_description=README,
+    long_description_content_type="text/markdown",
     author="Alain Girard",
     author_email="alaingirardvd@gmail.com",
     url="https://github.com/Allain18/pol",
