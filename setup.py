@@ -35,7 +35,7 @@ setup(
     packages=find_packages(exclude=["test"]),
     entry_points={
         "console_scripts": [
-            "pol=rpn_calculator.calculator:main",
+            "pol=rpn_calculator.main:main",
         ]
     },
 )

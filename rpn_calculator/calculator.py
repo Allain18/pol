@@ -1,11 +1,7 @@
-"""Calculator using the reverse polish notation"""
+"""File containing the Calculator object and get_number function"""
 
 import math
-import sys
-import argparse
 import pathlib
-
-from .version import __version__
 
 
 def get_number(num):
@@ -406,50 +402,3 @@ class Calculator:
     def quit(self):
         """Quit the program"""
         self.loop_flag = False
-
-
-def get_args():
-    """Get the args from argparse"""
-    parser = argparse.ArgumentParser(
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description="A RPN calculator written in python\n"
-        "Support decimal, hexadecimal, binary and octal"
-    )
-
-    parser.add_argument(
-        "-v", "--version", help="show the version number and exit", action="store_true")
-    parser.add_argument(
-        "-l", "--list", help="list all commands available and exit", action="store_true")
-    parser.add_argument(
-        "--ignore-local-config", help="don't add commands from ~/.pol",
-        action="store_true")
-
-    return parser.parse_args()
-
-
-def main():
-    """Entry point of the program"""
-    args = get_args()
-
-    if args.version:
-        print("pol version v{}".format(__version__))
-        print("Python {}".format(sys.version))
-        return
-
-    cal = Calculator()
-
-    if args.list:
-        doc = "List of commands available:\n\n"
-        for command, method in cal.operation.items():
-            doc += "`{}` : {}\n".format(command, method.__doc__)
-        print(doc)
-        return
-
-    if not args.ignore_local_config:
-        cal.add_commands()
-
-    cal.loop()
-
-
-if __name__ == "__main__":
-    main()
