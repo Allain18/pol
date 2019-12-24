@@ -394,29 +394,38 @@ class Calculator:
         self.loop_flag = False
 
 
-def main():
-    """Entry point of the program"""
-    cal = Calculator()
-
-    doc = "List of commands available:\n\n"
-
-    for command, method in cal.operation.items():
-        doc += "`{}` : {}\n".format(command, method.__doc__)
-
+def get_args():
+    """Get the args from argparse"""
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description="A RPN calculator written in python\n"
-        "Support decimal, hexadecimal, binary and octal",
-        epilog=doc)
+        "Support decimal, hexadecimal, binary and octal"
+    )
 
     parser.add_argument(
         "-v", "--version", help="show the version number and exit", action="store_true")
+    parser.add_argument(
+        "-l", "--list", help="list all commands available and exit", action="store_true")
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    """Entry point of the program"""
+    args = get_args()
 
     if args.version:
         print("pol version v{}".format(__version__))
         print("Python {}".format(sys.version))
+        return
+
+    cal = Calculator()
+
+    if args.list:
+        doc = "List of commands available:\n\n"
+        for command, method in cal.operation.items():
+            doc += "`{}` : {}\n".format(command, method.__doc__)
+        print(doc)
         return
 
     cal.loop()
