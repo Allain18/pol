@@ -110,38 +110,38 @@ class Calculator:
                 name, command = i.split(":")
                 self.custom_commands[name] = command
 
-    def check_stack(self, num):
+    def check_stack(self, num, command):
         """Check if enough number are in the stack"""
         if len(self.stack) < num:
-            print("Not enough number in the stack")
+            print("Not enough number in the stack for {} command".format(command))
             return False
 
         return True
 
     def add(self):
         """Take 2 numbers from the stack, add them and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "+"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 + value2)
 
     def sub(self):
         """Take 2 numbers from the stack, substracte them and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "-"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 - value1)
 
     def mul(self):
         """Take 2 numbers from the stack, mul them and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "*"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 * value2)
 
     def div(self):
         """Take 2 numbers from the stack, divise them and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "/"):
             value1 = self.stack.pop()
             if value1 == 0:
                 print("Impossible to divise by 0")
@@ -152,7 +152,7 @@ class Calculator:
 
     def int_div(self):
         """Take 2 numbers from the stack, divise them and put the integer result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "//"):
             value1 = self.stack.pop()
             if value1 == 0:
                 print("Impossible to divise by 0")
@@ -163,7 +163,7 @@ class Calculator:
 
     def modulo(self):
         """Take 2 numbers from the stack, divise them and put the remainder in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "%"):
             value1 = self.stack.pop()
             if value1 == 0:
                 print("Impossible to divise by 0")
@@ -174,20 +174,20 @@ class Calculator:
 
     def pow(self):
         """Take 2 numbers from the stack, apply power and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "**"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
 
     def exp(self):
         """Apply e**x to the last number of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "exp"):
             value = self.stack.pop()
             self.stack.append(math.exp(value))
 
     def log10(self):
         """Apply log10 to the last number of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "log10"):
             value = self.stack.pop()
             if value > 0:
                 self.stack.append(math.log10(value))
@@ -197,7 +197,7 @@ class Calculator:
 
     def log2(self):
         """Apply log2 to the last number of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "log2"):
             value = self.stack.pop()
             if value > 0:
                 self.stack.append(math.log2(value))
@@ -207,7 +207,7 @@ class Calculator:
 
     def loge(self):
         """Apply natural logarithm to the last number of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "loge"):
             value = self.stack.pop()
             if value > 0:
                 self.stack.append(math.log(value))
@@ -217,28 +217,28 @@ class Calculator:
 
     def and_(self):
         """Take 2 numbers from the stack, apply a bitwise "and" and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "and"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 & value2)
 
     def or_(self):
         """Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "or"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 | value2)
 
     def xor(self):
         """Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "xor"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1 ^ value2)
 
     def shift_left(self):
         """Take 2 numbers from the stack, apply a left shift and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "<<"):
             value2 = self.stack.pop()
             value1 = self.stack.pop()
             if isinstance(value1, int) and isinstance(value2, int):
@@ -250,7 +250,7 @@ class Calculator:
 
     def shift_right(self):
         """Take 2 numbers from the stack, apply a right shift and put the result in the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, ">>"):
             value2 = self.stack.pop()
             value1 = self.stack.pop()
             if isinstance(value1, int) and isinstance(value2, int):
@@ -262,18 +262,18 @@ class Calculator:
 
     def absolute_value(self):
         """Make absolute the last value of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "abs"):
             self.stack.append(abs(self.stack.pop()))
 
     def inv(self):
         """Inverse the last number of the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "inv"):
             value = self.stack.pop()
             self.stack.append(1 / value)
 
     def neg(self):
         """Change the sign of the last number in the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "neg"):
             value = self.stack.pop()
             if value < 0:
                 self.stack.append(abs(value))
@@ -282,22 +282,22 @@ class Calculator:
 
     def sin(self):
         """Replace the last number in the stack with the sine of itself (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "sin"):
             self.stack.append(math.sin(self.stack.pop()))
 
     def cos(self):
         """Replace the last number in the stack with the cosine of itself (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "cos"):
             self.stack.append(math.cos(self.stack.pop()))
 
     def tan(self):
         """Replace the last number in the stack with the tangent of itself (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "tan"):
             self.stack.append(math.tan(self.stack.pop()))
 
     def asin(self):
         """Replace the last number in the stack with the arc sine of itself (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "asin"):
             value = self.stack.pop()
             if value < -1 or value > 1:
                 print("Number out of domain for asin")
@@ -308,7 +308,7 @@ class Calculator:
     def acos(self):
         """Replace the last number in the stack with the arc cosine of itself
         (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "acos"):
             value = self.stack.pop()
             if value < -1 or value > 1:
                 print("Number out of domain for acos")
@@ -319,13 +319,13 @@ class Calculator:
     def atan(self):
         """Replace the last number in the stack with the arc tangent of itself
         (measured in radians)"""
-        if self.check_stack(1):
+        if self.check_stack(1, "atan"):
             value = self.stack.pop()
             self.stack.append(math.atan(value))
 
     def switch(self):
         """Switch the last 2 numbers of the stack"""
-        if self.check_stack(2):
+        if self.check_stack(2, "switch"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value1)
@@ -333,12 +333,12 @@ class Calculator:
 
     def del_(self):
         """Delete the last number in the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "del"):
             self.stack.pop()
 
     def copy(self):
         """Copy the last number of the stack and add it to the stack"""
-        if self.check_stack(1):
+        if self.check_stack(1, "copy"):
             self.stack.append(self.stack[-1])
 
     def const_pi(self):
@@ -355,12 +355,12 @@ class Calculator:
 
     def print(self):
         """Print the last number of the stack and remove it"""
-        if self.check_stack(1):
+        if self.check_stack(1, "print"):
             print("{}".format(self.stack.pop()))
 
     def print_hex(self):
         """Print in hexadecimal format the last number of the stack and remove it"""
-        if self.check_stack(1):
+        if self.check_stack(1, "print_hex"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0x{:X}".format(i))
@@ -372,7 +372,7 @@ class Calculator:
 
     def print_bin(self):
         """Print in binary format the last number of the stack and remove it"""
-        if self.check_stack(1):
+        if self.check_stack(1, "print_bin"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0b{:b}".format(i))
