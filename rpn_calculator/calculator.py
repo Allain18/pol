@@ -3,6 +3,7 @@
 import math
 import sys
 import argparse
+import pathlib
 
 from .version import __version__
 
@@ -74,6 +75,8 @@ class Calculator:
             "q": self.quit
         }
 
+        self.custom_commands = {}
+
     def loop(self):
         """Fonction principale"""
 
@@ -97,11 +100,22 @@ class Calculator:
             elif isinstance(i, str):
                 if i in self.operation.keys():
                     self.operation[i]()
+                elif i in self.custom_commands.keys():
+                    self.evaluate(self.custom_commands[i])
                 else:
                     print("Unknow command: {}".format(i))
 
             else:
                 raise "Should never happend"
+
+    def add_commands(self):
+        """Add command from ~/.pol"""
+        file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
+        if file_path.exists():
+            with open(file_path, "r") as file:
+                for i in file.readlines():
+                    name, command = i.split(":")
+                    self.custom_commands[name] = command
 
     def check_stack(self, num):
         """Check if enough number are in the stack"""
@@ -406,6 +420,9 @@ def get_args():
         "-v", "--version", help="show the version number and exit", action="store_true")
     parser.add_argument(
         "-l", "--list", help="list all commands available and exit", action="store_true")
+    parser.add_argument(
+        "--ignore-local-config", help="don't add commands from ~/.pol",
+        action="store_true")
 
     return parser.parse_args()
 
@@ -427,6 +444,9 @@ def main():
             doc += "`{}` : {}\n".format(command, method.__doc__)
         print(doc)
         return
+
+    if not args.ignore_local_config:
+        cal.add_commands()
 
     cal.loop()
 
