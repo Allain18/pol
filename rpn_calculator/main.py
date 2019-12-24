@@ -51,7 +51,3 @@ def main():
             cal.add_commands(file_path)
 
     cal.loop()
-
-
-if __name__ == "__main__":
-    main()
