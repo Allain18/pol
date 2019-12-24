@@ -23,6 +23,9 @@ def get_args():
     parser.add_argument(
         "--ignore-local-config", help="don't add commands from ~/.pol",
         action="store_true")
+    parser.add_argument(
+        '-f', "--file", type=str, nargs="+",
+        help="file with customs commands")
 
     return parser.parse_args()
 
@@ -49,5 +52,10 @@ def main():
         file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
         if file_path.exists():
             cal.add_commands(file_path)
+
+    for file in args.file:
+        path_file = pathlib.Path(file)
+        if path_file.exists():
+            cal.add_commands(path_file)
 
     cal.loop()
