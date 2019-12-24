@@ -1,7 +1,6 @@
 """File containing the Calculator object and get_number function"""
 
 import math
-import pathlib
 
 
 def get_number(num):
@@ -104,14 +103,12 @@ class Calculator:
             else:
                 raise "Should never happend"
 
-    def add_commands(self):
+    def add_commands(self, existing_path):
         """Add command from ~/.pol"""
-        file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
-        if file_path.exists():
-            with open(file_path, "r") as file:
-                for i in file.readlines():
-                    name, command = i.split(":")
-                    self.custom_commands[name] = command
+        with open(existing_path, "r") as file:
+            for i in file.readlines():
+                name, command = i.split(":")
+                self.custom_commands[name] = command
 
     def check_stack(self, num):
         """Check if enough number are in the stack"""

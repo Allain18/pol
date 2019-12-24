@@ -2,6 +2,7 @@
 
 import sys
 import argparse
+import pathlib
 
 from .calculator import Calculator
 from .version import __version__
@@ -45,7 +46,9 @@ def main():
         return
 
     if not args.ignore_local_config:
-        cal.add_commands()
+        file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
+        if file_path.exists():
+            cal.add_commands(file_path)
 
     cal.loop()
 
