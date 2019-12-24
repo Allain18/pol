@@ -53,9 +53,10 @@ def main():
         if file_path.exists():
             cal.add_commands(file_path)
 
-    for file in args.file:
-        path_file = pathlib.Path(file)
-        if path_file.exists():
-            cal.add_commands(path_file)
+    if isinstance(args.file, list):
+        for file in args.file:
+            path_file = pathlib.Path(file)
+            if path_file.exists():
+                cal.add_commands(path_file)
 
     cal.loop()
