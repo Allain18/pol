@@ -84,6 +84,8 @@ class Calculator:
 
         except KeyboardInterrupt:
             pass
+        except EOFError:
+            pass
 
     def evaluate(self, string):
         """Evaluate the string and calls adequate method"""
