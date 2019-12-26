@@ -73,7 +73,7 @@ class Calculator:
         self.custom_commands = {}
 
     def loop(self):
-        """Fonction principale"""
+        """loop for getting input from user"""
 
         print("Reverse polish notation calculator")
 
