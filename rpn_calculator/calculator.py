@@ -109,8 +109,16 @@ class Calculator:
         """Add command from ~/.pol"""
         with open(existing_path, "r") as file:
             for i in file.readlines():
-                name, command = i.split(":")
-                self.custom_commands[name] = command
+                i = i.rstrip()
+                try:
+                    name, command = i.split(":")
+                except ValueError:
+                    print("""Wrong command "{}" in file "{}" """.format(
+                        i, existing_path))
+                    print(
+                        """Command must be of the format "{name_of_command:command}"\n""")
+                else:
+                    self.custom_commands[name] = command
 
     def check_stack(self, num, command):
         """Check if enough number are in the stack"""
