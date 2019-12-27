@@ -34,6 +34,14 @@ class TestCalculator(unittest.TestCase):
 
         self.assertEqual(self.cal.stack, [16])
 
+    def test_add_commands(self):
+        """ Test add_commands method"""
+        self.cal.add_commands("test/custom_commands")
+        self.cal.evaluate("2 double 2 10*")
+
+        self.assertEqual(self.cal.stack, [4, 100])
+        self.assertEqual(len(self.cal.custom_commands), 2)
+
     def test_add(self):
         """Test add method"""
         self.cal.stack.append(5)
