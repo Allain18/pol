@@ -26,6 +26,14 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(get_number("0xaaa"), 2730)
         self.assertEqual(get_number("alc"), "alc")
 
+    def test_loop(self):
+        """Test loop method"""
+        stdin = StringIO("2 8 * q\n")
+        sys.stdin = stdin
+        self.cal.loop()
+
+        self.assertEqual(self.cal.stack, [16])
+
     def test_add(self):
         """Test add method"""
         self.cal.stack.append(5)
