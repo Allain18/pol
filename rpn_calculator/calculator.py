@@ -106,7 +106,8 @@ class Calculator:
                 raise "Should never happend"
 
     def add_commands(self, existing_path):
-        """Add command from ~/.pol"""
+        """Add command from existing path
+           Command must be on the format "{name_of_command}:{command}" """
         with open(existing_path, "r") as file:
             for i in file.readlines():
                 i = i.rstrip()
