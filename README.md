@@ -45,6 +45,35 @@ This README is the Documentation
 ## [Repo](https://github.com/Allain18/pol)
 The code is on github
 
+## Own commands
+You can write your own command
+By default commands from file ~/.pol (if exists) are add to the calculator
+
+You can add other files with the flag -f/--file
+
+Command must be on the format {name_of_command:command}
+
+Example of valid command:
+```
+double : 2 *
+```
+
+## Options
+```
+usage: pol [-h] [-v] [-l] [--ignore-local-config] [-f FILE [FILE ...]]
+
+A RPN calculator written in python
+Support decimal, hexadecimal, binary and octal
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the version number and exit
+  -l, --list            list all commands available and exit
+  --ignore-local-config
+                        don't add commands from ~/.pol
+  -f FILE [FILE ...], --file FILE [FILE ...]
+                        file with customs commands
+```
 ## List of commands
 `+` : Take 2 numbers from the stack, add them and put the result in the stack
 
