@@ -119,6 +119,7 @@ class Calculator:
                     print(
                         """Command must be of the format "{name_of_command:command}"\n""")
                 else:
+                    name = name.strip()
                     self.custom_commands[name] = command
 
     def check_stack(self, num, command):
