@@ -37,10 +37,18 @@ class TestCalculator(unittest.TestCase):
     def test_add_commands(self):
         """ Test add_commands method"""
         self.cal.add_commands("test/custom_commands")
-        self.cal.evaluate("2 double 2 10*")
+        self.assertEqual(self.stdout.getvalue(),
+                         """Wrong command "false: 2 : /" in file "test/custom_commands" \n"""
+                         """Command must be of the format "{name_of_command:command}"\n\n""")
+
+        self.stdout.truncate(0)
+        self.stdout.seek(0)
+        self.cal.evaluate("2 double 2 10* wrong")
 
         self.assertEqual(self.cal.stack, [4, 100])
-        self.assertEqual(len(self.cal.custom_commands), 2)
+        self.assertEqual(len(self.cal.custom_commands), 3)
+        self.assertEqual(self.stdout.getvalue(),
+                         "Unknow command: not_a_command\n")
 
     def test_add(self):
         """Test add method"""
