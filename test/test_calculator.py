@@ -437,6 +437,20 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.stdout.getvalue(),
                          "Impossible to print a float in binary\n0b1010\n0b111110100\n")
 
+    def test_print_oct(self):
+        """Test print_oct method"""
+        self.cal.stack.append(500)
+        self.cal.stack.append(10.0)
+        self.cal.stack.append(2.5)
+
+        self.cal.print_oct()
+        self.cal.stack.pop()
+        self.cal.print_oct()
+        self.cal.print_oct()
+
+        self.assertEqual(self.stdout.getvalue(),
+                         "Impossible to print a float in octal\n0o12\n0o764\n")
+
     def test_print_stack(self):
         """Test print_stack"""
         self.cal.stack.append(500)

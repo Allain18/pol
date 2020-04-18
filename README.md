@@ -146,6 +146,8 @@ optional arguments:
 
 `bin` : Print in binary format the last number of the stack and remove it
 
+`oct` : Print in octal format the last number of the stack and remove it
+
 `s` : Print the stack
 
 `clear` : Empty the stack

@@ -65,6 +65,7 @@ class Calculator:
             "dec": self.print,
             "hex": self.print_hex,
             "bin": self.print_bin,
+            "oct": self.print_oct,
             "s": self.print_stack,
             "clear": self.clear_stack,
             "help": self.help,
@@ -395,6 +396,19 @@ class Calculator:
             else:
                 self.stack.append(i)
                 print("Impossible to print a float in binary")
+
+    def print_oct(self):
+        """Print in octal format the last number of the stack and remove it"""
+        if self.check_stack(1, "print_bin"):
+            i = self.stack.pop()
+            if isinstance(i, int):
+                print("0o{:o}".format(i))
+            elif i.is_integer():
+                i = int(i)
+                print("0o{:o}".format(i))
+            else:
+                self.stack.append(i)
+                print("Impossible to print a float in octal")
 
     def print_stack(self):
         """Print the stack"""
