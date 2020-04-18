@@ -439,7 +439,8 @@ class TestCalculator(unittest.TestCase):
         self.cal.clear_stack()
         self.cal.print_stack()
 
-        self.assertEqual(self.stdout.getvalue(), "500, 10.0, 123.123\n\n")
+        self.assertEqual(self.stdout.getvalue(),
+                         "500, 10.0, 123.123\nStack is empty\n")
 
     def test_evaluate(self):
         """Test evaluate method"""

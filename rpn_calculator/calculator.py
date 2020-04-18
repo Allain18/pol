@@ -403,7 +403,7 @@ class Calculator:
                 print("{}, ".format(self.stack[i]), end="")
             print("{}".format(self.stack[-1]))
         else:
-            print()
+            print("Stack is empty")
 
     def clear_stack(self):
         """Empty the stack"""
