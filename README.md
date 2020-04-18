@@ -32,7 +32,7 @@ cal.evaluate("1 2 + .")
 ## Install
 pol can be install from pip
 ```
-pip install rpn-calculator
+pip install rpn-calc
 ```
 If you want to install from a source distribution, extract the tarball and run the following command
 ```
@@ -47,6 +47,7 @@ The code is on github
 
 ## Own commands
 You can write your own command
+
 By default commands from file ~/.pol (if exists) are add to the calculator
 
 You can add other files with the flag -f/--file
