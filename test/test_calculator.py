@@ -50,6 +50,15 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.stdout.getvalue(),
                          "Unknow command: not_a_command\n")
 
+    def test_check_stack(self):
+        """Test check_stack method"""
+        self.cal.stack.append(55)
+        self.assertEqual(self.cal.check_stack(1, "test"), True)
+        self.assertEqual(self.cal.check_stack(5, "test"), False)
+
+        self.assertEqual(self.stdout.getvalue(),
+                         "Not enough numbers in the stack for test command\n")
+
     def test_add(self):
         """Test add method"""
         self.cal.stack.append(5)
