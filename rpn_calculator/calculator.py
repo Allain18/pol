@@ -67,6 +67,7 @@ class Calculator:
             "bin": self.print_bin,
             "s": self.print_stack,
             "clear": self.clear_stack,
+            "help": self.help,
             "q": self.quit
         }
 
@@ -407,6 +408,14 @@ class Calculator:
     def clear_stack(self):
         """Empty the stack"""
         self.stack = []
+
+    def help(self):
+        """Print help; Same as pol --list"""
+        doc = ""
+        for command, method in self.operation.items():
+            doc += "`{}` : {}\n".format(command, method.__doc__)
+
+        print(doc)
 
     def quit(self):
         """Quit the program"""

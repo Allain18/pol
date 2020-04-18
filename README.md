@@ -150,6 +150,8 @@ optional arguments:
 
 `clear` : Empty the stack
 
+`help` : Print help; Same as pol --list
+
 `q` : Quit the program
 
 ## License
