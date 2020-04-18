@@ -443,7 +443,7 @@ class TestCalculator(unittest.TestCase):
 
     def test_evaluate(self):
         """Test evaluate method"""
-        self.cal.evaluate("5 10 * .")
+        self.cal.evaluate("5 10 * dec")
         self.assertEqual(self.stdout.getvalue(), "50\n")
 
 

@@ -25,7 +25,7 @@ pol can also be use as a module
 ```python 
 import rpn_calculator
 cal = rpn_calculator.Calculator()
-cal.evaluate("1 2 + .")
+cal.evaluate("1 2 + dec")
 # print 3
 ```
 
@@ -140,9 +140,9 @@ optional arguments:
 
 `e` : Add e to the stack
 
-`.` : Print the last number of the stack and remove it
+`dec` : Print the last number of the stack and remove it
 
-`..` : Print in hexadecimal format the last number of the stack and remove it
+`hex` : Print in hexadecimal format the last number of the stack and remove it
 
 `bin` : Print in binary format the last number of the stack and remove it
 
