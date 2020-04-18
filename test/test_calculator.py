@@ -411,7 +411,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.stdout.getvalue(), "10.2\n5\n")
 
     def test_print_hex(self):
-        """Test print_hex_method"""
+        """Test print_hex method"""
         self.cal.stack.append(500)
         self.cal.stack.append(10.0)
         self.cal.stack.append(12.2)
@@ -424,7 +424,7 @@ class TestCalculator(unittest.TestCase):
                          "0x1.8666666666666p+3\n0xA\n0x1F4\n")
 
     def test_print_bin(self):
-        """Test print_bin_method"""
+        """Test print_bin method"""
         self.cal.stack.append(500)
         self.cal.stack.append(10.0)
         self.cal.stack.append(2.5)
@@ -435,7 +435,7 @@ class TestCalculator(unittest.TestCase):
         self.cal.print_bin()
 
         self.assertEqual(self.stdout.getvalue(),
-                         "Not possible to print a float in binary\n0b1010\n0b111110100\n")
+                         "Impossible to print a float in binary\n0b1010\n0b111110100\n")
 
     def test_print_stack(self):
         """Test print_stack"""

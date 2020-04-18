@@ -126,7 +126,7 @@ class Calculator:
     def check_stack(self, num, command):
         """Check if enough number are in the stack"""
         if len(self.stack) < num:
-            print("Not enough number in the stack for {} command".format(command))
+            print("Not enough numbers in the stack for {} command".format(command))
             return False
 
         return True
@@ -394,7 +394,7 @@ class Calculator:
                 print("0b{:b}".format(i))
             else:
                 self.stack.append(i)
-                print("Not possible to print a float in binary")
+                print("Impossible to print a float in binary")
 
     def print_stack(self):
         """Print the stack"""
