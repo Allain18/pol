@@ -19,7 +19,7 @@ setup(
     license="MIT License",
     keywords="rpn, calculator, reverse polish notation",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
