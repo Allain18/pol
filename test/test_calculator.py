@@ -406,6 +406,32 @@ class TestCalculator(unittest.TestCase):
         self.cal.sum()
         self.assertEqual(self.cal.stack, [5+22+33])
 
+    def test_fact(self):
+        """Test fact method"""
+        self.cal.factorial()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Not enough numbers in the stack for fact command\n")
+
+        self.cal.stack.append(5)
+        self.cal.factorial()
+        self.assertEqual(self.cal.stack.pop(), 120)
+
+        self.stdout.truncate(0)
+        self.stdout.seek(0)
+        self.cal.stack.append(-5)
+        self.cal.factorial()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Impossible to compute factorial for negative number\n")
+        self.assertEqual(self.cal.stack.pop(), -5)
+
+        self.stdout.truncate(0)
+        self.stdout.seek(0)
+        self.cal.stack.append(3.2)
+        self.cal.factorial()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Impossible to compute factorial for float number\n")
+        self.assertEqual(self.cal.stack.pop(), 3.2)
+
     def test_print(self):
         """Test print method"""
         self.cal.stack.append(5)

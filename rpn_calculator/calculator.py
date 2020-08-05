@@ -63,6 +63,7 @@ class Calculator:
             "tau": self.const_tau,
             "e": self.const_e,
             "sum": self.sum,
+            "fact": self.factorial,
             "dec": self.print,
             "hex": self.print_hex,
             "bin": self.print_bin,
@@ -374,6 +375,20 @@ class Calculator:
             total = sum(self.stack)
             self.stack.clear()
             self.stack.append(total)
+
+    def factorial(self):
+        """Replace the last number in the stack with its factorial"""
+        if self.check_stack(1, "fact"):
+            value = self.stack.pop()
+            if value < 0:
+                print("Impossible to compute factorial for negative number")
+                self.stack.append(value)
+                return
+            if isinstance(value, float):
+                print("Impossible to compute factorial for float number")
+                self.stack.append(value)
+                return
+            self.stack.append(math.factorial(value))
 
     def print(self):
         """Print the last number of the stack and remove it"""
