@@ -64,6 +64,7 @@ class Calculator:
             "e": self.const_e,
             "sum": self.sum,
             "fact": self.factorial,
+            "round": self.round,
             "dec": self.print,
             "hex": self.print_hex,
             "bin": self.print_bin,
@@ -389,6 +390,12 @@ class Calculator:
                 self.stack.append(value)
                 return
             self.stack.append(math.factorial(value))
+
+    def round(self):
+        """Round the last number in the stack"""
+        if self.check_stack(1, "round"):
+            value = self.stack.pop()
+            self.stack.append(round(value))
 
     def print(self):
         """Print the last number of the stack and remove it"""

@@ -432,6 +432,24 @@ class TestCalculator(unittest.TestCase):
                          "Impossible to compute factorial for float number\n")
         self.assertEqual(self.cal.stack.pop(), 3.2)
 
+    def test_round(self):
+        """Test round method"""
+        self.cal.round()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Not enough numbers in the stack for round command\n")
+
+        self.cal.stack.append(5)
+        self.cal.round()
+        self.assertEqual(self.cal.stack.pop(), 5)
+
+        self.cal.stack.append(5.6)
+        self.cal.round()
+        self.assertEqual(self.cal.stack.pop(), 6)
+
+        self.cal.stack.append(-3566.33)
+        self.cal.round()
+        self.assertEqual(self.cal.stack.pop(), -3566)
+
     def test_print(self):
         """Test print method"""
         self.cal.stack.append(5)
