@@ -400,6 +400,12 @@ class TestCalculator(unittest.TestCase):
         self.cal.del_()
         self.assertEqual(self.cal.stack, [math.pi])
 
+    def test_sum(self):
+        """Test sum method"""
+        self.cal.stack.extend([5, 22, 33])
+        self.cal.sum()
+        self.assertEqual(self.cal.stack, [5+22+33])
+
     def test_print(self):
         """Test print method"""
         self.cal.stack.append(5)

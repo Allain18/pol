@@ -62,6 +62,7 @@ class Calculator:
             "pi": self.const_pi,
             "tau": self.const_tau,
             "e": self.const_e,
+            "sum": self.sum,
             "dec": self.print,
             "hex": self.print_hex,
             "bin": self.print_bin,
@@ -366,6 +367,13 @@ class Calculator:
     def const_e(self):
         """Add e to the stack"""
         self.stack.append(math.e)
+
+    def sum(self):
+        """Take all the number of the stack and add the sum"""
+        if self.check_stack(1, "sum"):
+            total = sum(self.stack)
+            self.stack.clear()
+            self.stack.append(total)
 
     def print(self):
         """Print the last number of the stack and remove it"""
