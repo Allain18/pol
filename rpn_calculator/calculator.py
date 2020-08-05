@@ -87,9 +87,7 @@ class Calculator:
                 data = input(">")
                 self.evaluate(data)
 
-        except KeyboardInterrupt:
-            pass
-        except EOFError:
+        except (KeyboardInterrupt, EOFError):
             pass
 
     def evaluate(self, string):
