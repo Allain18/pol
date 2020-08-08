@@ -8,7 +8,9 @@ def main():
 
     doc = ""
     for command, method in rpn_calculator.Calculator().operation.items():
-        doc += "`{}` : {}\n\n".format(command, method.__doc__)
+        info = method.__doc__
+        info = info.replace("\n        ", " ")
+        doc += "`{}` : {}\n\n".format(command, info)
 
     with open("README.md", "r") as readme:
         list_readme = readme.read().split("## List of commands\n")
