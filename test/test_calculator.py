@@ -450,6 +450,24 @@ class TestCalculator(unittest.TestCase):
         self.cal.round()
         self.assertEqual(self.cal.stack.pop(), -3566)
 
+    def test_average(self):
+        """Test round method"""
+        self.cal.average()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Not enough numbers in the stack for ave command\n")
+
+        self.cal.stack.append(5)
+        self.cal.average()
+        self.assertEqual(self.cal.stack.pop(), 5)
+
+        self.cal.stack.extend([5, 5.6])
+        self.cal.average()
+        self.assertEqual(self.cal.stack.pop(), 5.3)
+
+        self.cal.stack.extend([5.3, -3566.33])
+        self.cal.average()
+        self.assertAlmostEqual(self.cal.stack.pop(), -1780.515)
+
     def test_print(self):
         """Test print method"""
         self.cal.stack.append(5)

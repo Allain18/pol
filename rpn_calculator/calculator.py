@@ -65,6 +65,7 @@ class Calculator:
             "sum": self.sum,
             "fact": self.factorial,
             "round": self.round,
+            "ave": self.average,
             "dec": self.print,
             "hex": self.print_hex,
             "bin": self.print_bin,
@@ -394,6 +395,14 @@ class Calculator:
         if self.check_stack(1, "round"):
             value = self.stack.pop()
             self.stack.append(round(value))
+
+    def average(self):
+        """Take all the number of the stack and add the average"""
+        if self.check_stack(1, "ave"):
+            size = len(self.stack)
+            total = sum(self.stack)
+            self.stack.clear()
+            self.stack.append(total / size)
 
     def print(self):
         """Print the last number of the stack and remove it"""
