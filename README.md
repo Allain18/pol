@@ -122,11 +122,9 @@ optional arguments:
 
 `asin` : Replace the last number in the stack with the arc sine of itself (measured in radians)
 
-`acos` : Replace the last number in the stack with the arc cosine of itself
-        (measured in radians)
+`acos` : Replace the last number in the stack with the arc cosine of itself (measured in radians)
 
-`atan` : Replace the last number in the stack with the arc tangent of itself
-        (measured in radians)
+`atan` : Replace the last number in the stack with the arc tangent of itself (measured in radians)
 
 `switch` : Switch the last 2 numbers of the stack
 
@@ -139,6 +137,14 @@ optional arguments:
 `tau` : Add tau to the stack
 
 `e` : Add e to the stack
+
+`sum` : Take all the number of the stack and add the sum
+
+`fact` : Replace the last number in the stack with its factorial
+
+`round` : Round the last number in the stack
+
+`ave` : Take all the number of the stack and add the average
 
 `dec` : Print the last number of the stack and remove it
 
