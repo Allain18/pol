@@ -436,7 +436,7 @@ class Calculator:
 
     def print_oct(self):
         """Print in octal format the last number of the stack and remove it"""
-        if self.check_stack(1, "print_bin"):
+        if self.check_stack(1, "print_oct"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0o{:o}".format(i))
