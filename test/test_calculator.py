@@ -468,13 +468,13 @@ class TestCalculator(unittest.TestCase):
         self.cal.average()
         self.assertAlmostEqual(self.cal.stack.pop(), -1780.515)
 
-    def test_print(self):
+    def test_print_dec(self):
         """Test print method"""
         self.cal.stack.append(5)
         self.cal.stack.append(10.2)
 
-        self.cal.print()
-        self.cal.print()
+        self.cal.print_dec()
+        self.cal.print_dec()
 
         self.assertEqual(self.stdout.getvalue(), "10.2\n5\n")
 
