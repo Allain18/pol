@@ -5,7 +5,7 @@ import unittest
 import math
 from io import StringIO
 
-from rpn_calculator.calculator import Calculator, get_number
+from rpn_calc.calculator import Calculator, get_number
 
 
 class TestCalculator(unittest.TestCase):

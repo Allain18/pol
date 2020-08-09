@@ -21,7 +21,7 @@ jobs:
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint --disable=R0904 --reports=n rpn_calculator/ test/ get_commands.py setup.py
+        pylint --disable=R0904 --reports=n rpn_calc/ test/ get_commands.py setup.py
     - name: Test with unittest
       run: |
         python -m unittest

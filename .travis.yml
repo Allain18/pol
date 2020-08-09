@@ -13,6 +13,6 @@ install:
 
 # command to run tests
 script: 
-  - pylint --disable=R0904 rpn_calculator/ test/ setup.py get_commands.py
+  - pylint --disable=R0904 rpn_calc/ test/ setup.py get_commands.py
   - python -m unittest
  

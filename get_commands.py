@@ -1,13 +1,13 @@
 """Update README with commands"""
 
-import rpn_calculator
+import rpn_calc
 
 
 def main():
     """Update readme with command"""
 
     doc = ""
-    for command, method in rpn_calculator.Calculator().operation.items():
+    for command, method in rpn_calc.Calculator().operation.items():
         info = method.__doc__.replace("\n        ", " ")
         doc += "`{}` : {}\n\n".format(command, info)
 

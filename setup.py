@@ -1,7 +1,7 @@
 """Setup script for the package"""
 
 from setuptools import setup, find_packages
-from rpn_calculator import __version__
+from rpn_calc import __version__
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -35,7 +35,7 @@ setup(
     packages=find_packages(exclude=["test"]),
     entry_points={
         "console_scripts": [
-            "pol=rpn_calculator.main:main",
+            "pol=rpn_calc.main:main",
         ]
     },
 )
