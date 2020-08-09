@@ -66,7 +66,7 @@ class Calculator:
             "fact": self.factorial,
             "round": self.round,
             "ave": self.average,
-            "dec": self.print,
+            "dec": self.print_dec,
             "hex": self.print_hex,
             "bin": self.print_bin,
             "oct": self.print_oct,
@@ -404,14 +404,14 @@ class Calculator:
             self.stack.clear()
             self.stack.append(total / size)
 
-    def print(self):
+    def print_dec(self):
         """Print the last number of the stack and remove it"""
-        if self.check_stack(1, "print"):
+        if self.check_stack(1, "dec"):
             print("{}".format(self.stack.pop()))
 
     def print_hex(self):
         """Print in hexadecimal format the last number of the stack and remove it"""
-        if self.check_stack(1, "print_hex"):
+        if self.check_stack(1, "hex"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0x{:X}".format(i))
@@ -423,7 +423,7 @@ class Calculator:
 
     def print_bin(self):
         """Print in binary format the last number of the stack and remove it"""
-        if self.check_stack(1, "print_bin"):
+        if self.check_stack(1, "bin"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0b{:b}".format(i))
@@ -436,7 +436,7 @@ class Calculator:
 
     def print_oct(self):
         """Print in octal format the last number of the stack and remove it"""
-        if self.check_stack(1, "print_oct"):
+        if self.check_stack(1, "oct"):
             i = self.stack.pop()
             if isinstance(i, int):
                 print("0o{:o}".format(i))
