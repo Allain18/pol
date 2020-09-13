@@ -163,9 +163,9 @@ class Calculator:
             if value1 == 0:
                 print("Impossible to divise by 0")
                 self.stack.append(value1)
-                return
-            value2 = self.stack.pop()
-            self.stack.append(value2 / value1)
+            else:
+                value2 = self.stack.pop()
+                self.stack.append(value2 / value1)
 
     def int_div(self):
         """Take 2 numbers from the stack, divise them and put the integer result in the stack"""
@@ -174,9 +174,9 @@ class Calculator:
             if value1 == 0:
                 print("Impossible to divise by 0")
                 self.stack.append(value1)
-                return
-            value2 = self.stack.pop()
-            self.stack.append(value2 // value1)
+            else:
+                value2 = self.stack.pop()
+                self.stack.append(value2 // value1)
 
     def modulo(self):
         """Take 2 numbers from the stack, divise them and put the remainder in the stack"""
@@ -185,9 +185,9 @@ class Calculator:
             if value1 == 0:
                 print("Impossible to divise by 0")
                 self.stack.append(value1)
-                return
-            value2 = self.stack.pop()
-            self.stack.append(value2 % value1)
+            else:
+                value2 = self.stack.pop()
+                self.stack.append(value2 % value1)
 
     def pow(self):
         """Take 2 numbers from the stack, apply power and put the result in the stack"""
@@ -203,7 +203,6 @@ class Calculator:
             if value < 0:
                 print("Square root require non-negative value")
                 self.stack.append(value)
-                return
             else:
                 self.stack.append(math.sqrt(value))
 
@@ -395,12 +394,11 @@ class Calculator:
             if value < 0:
                 print("Impossible to compute factorial for negative number")
                 self.stack.append(value)
-                return
-            if isinstance(value, float):
+            elif isinstance(value, float):
                 print("Impossible to compute factorial for float number")
                 self.stack.append(value)
-                return
-            self.stack.append(math.factorial(value))
+            else:
+                self.stack.append(math.factorial(value))
 
     def round(self):
         """Round the last number in the stack"""
