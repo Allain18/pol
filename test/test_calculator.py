@@ -164,6 +164,18 @@ class TestCalculator(unittest.TestCase):
         self.cal.pow()
         self.assertEqual(self.cal.stack.pop(), 1)
 
+    def test_sqrt(self):
+        """Test sqrt method"""
+        self.cal.stack.append(16)
+        self.cal.sqrt()
+        self.cal.stack.append(0)
+        self.cal.sqrt()
+        self.cal.stack.append(-5)
+        self.cal.sqrt()
+        self.assertEqual(self.stdout.getvalue(),
+                         "Square root require non-negative value\n")
+        self.assertEqual(self.cal.stack, [4, 0.0, -5])
+
     def test_exp(self):
         """Test exp method"""
         self.cal.stack.append(0)

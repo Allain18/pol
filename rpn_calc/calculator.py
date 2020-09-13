@@ -38,6 +38,7 @@ class Calculator:
             "//": self.int_div,
             "%": self.modulo,
             "**": self.pow,
+            "sqrt": self.sqrt,
             "exp": self.exp,
             "log10": self.log10,
             "log2": self.log2,
@@ -194,6 +195,17 @@ class Calculator:
             value1 = self.stack.pop()
             value2 = self.stack.pop()
             self.stack.append(value2 ** value1)
+
+    def sqrt(self):
+        """Replace the last number in the stack with the square root of itself"""
+        if self.check_stack(1, "sqrt"):
+            value = self.stack.pop()
+            if value < 0:
+                print("Square root require non-negative value")
+                self.stack.append(value)
+                return
+            else:
+                self.stack.append(math.sqrt(value))
 
     def exp(self):
         """Apply e**x to the last number of the stack"""
