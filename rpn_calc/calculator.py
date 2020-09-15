@@ -30,6 +30,8 @@ class Calculator:
 
         self.loop_flag = True
 
+        self.rounding_value = None
+
         self.operation = {
             "+": self.add,
             "-": self.sub,
@@ -404,7 +406,7 @@ class Calculator:
         """Round the last number in the stack"""
         if self.check_stack(1, "round"):
             value = self.stack.pop()
-            self.stack.append(round(value))
+            self.stack.append(round(value, self.rounding_value))
 
     def average(self):
         """Take all the number of the stack and add the average"""
