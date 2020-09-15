@@ -90,6 +90,8 @@ optional arguments:
 
 `**` : Take 2 numbers from the stack, apply power and put the result in the stack
 
+`sqrt` : Replace the last number in the stack with the square root of itself
+
 `exp` : Apply e**x to the last number of the stack
 
 `log10` : Apply log10 to the last number of the stack
