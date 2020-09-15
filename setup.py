@@ -38,4 +38,7 @@ setup(
             "pol=rpn_calc.main:main",
         ]
     },
+    install_requires=[
+        "pyyaml>=5.0",
+    ]
 )

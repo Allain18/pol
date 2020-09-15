@@ -54,14 +54,14 @@ def main():
     cal.rounding_value = args.rounding
 
     if not args.ignore_local_config:
-        file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
+        file_path = pathlib.Path("{}/pol.yml".format(pathlib.Path.home()))
         if file_path.exists():
-            cal.add_commands(file_path)
+            cal.add_config(file_path)
 
     if isinstance(args.file, list):
         for file in args.file:
             path_file = pathlib.Path(file)
             if path_file.exists():
-                cal.add_commands(path_file)
+                cal.add_config(path_file)
 
     cal.loop()

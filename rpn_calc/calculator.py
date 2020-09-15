@@ -1,6 +1,7 @@
 """File containing the Calculator object and get_number function"""
 
 import math
+import yaml
 
 
 def get_number(num):
@@ -112,22 +113,30 @@ class Calculator:
             else:
                 raise "Should never happend"
 
-    def add_commands(self, existing_path):
+    def add_config(self, existing_path):
         """Add command from existing path
-           Command must be on the format "{name_of_command}:{command}" """
+           Command must be on the format "{name_of_command} = {command}" """
         with open(existing_path, "r") as file:
-            for i in file.readlines():
-                i = i.rstrip()
-                try:
-                    name, command = i.split(":")
-                except ValueError:
-                    print("""Wrong command "{}" in file "{}" """.format(
-                        i, existing_path))
-                    print(
-                        """Command must be of the format "{name_of_command:command}"\n""")
-                else:
-                    name = name.strip()
-                    self.custom_commands[name] = command
+            try:
+                config = yaml.safe_load(file)
+            except yaml.scanner.ScannerError as err:
+                print("Error in config file : {}", err)
+                return
+
+            if self.rounding_value is None and "rounding" in config:
+                self.rounding_value = config["rounding"]
+            if "shortcut" in config:
+                for i in config["shortcut"]:
+                    try:
+                        name, command = i.split("=")
+                    except ValueError:
+                        print("""Wrong command "{}" in file "{}" """.format(
+                            i, existing_path))
+                        print(
+                            """Command must be of the format "{name_of_command = command}"\n""")
+                    else:
+                        name = name.strip()
+                        self.custom_commands[name] = command
 
     def check_stack(self, num, command):
         """Check if enough number are in the stack"""
