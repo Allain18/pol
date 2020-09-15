@@ -34,12 +34,12 @@ class TestCalculator(unittest.TestCase):
 
         self.assertEqual(self.cal.stack, [16])
 
-    def test_add_commands(self):
-        """ Test add_commands method"""
-        self.cal.add_commands("test/custom_commands")
+    def test_add_config(self):
+        """Test add_config method"""
+        self.cal.add_config("test/custom_config.yml")
         self.assertEqual(self.stdout.getvalue(),
-                         """Wrong command "false: 2 : /" in file "test/custom_commands" \n"""
-                         """Command must be of the format "{name_of_command:command}"\n\n""")
+                         """Wrong command "false = 2 = /" in file "test/custom_config.yml" \n"""
+                         """Command must be of the format "{name_of_command = command}"\n\n""")
 
         self.stdout.truncate(0)
         self.stdout.seek(0)
@@ -49,6 +49,10 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(len(self.cal.custom_commands), 3)
         self.assertEqual(self.stdout.getvalue(),
                          "Unknow command: not_a_command\n")
+
+    def test_add_config_garbage(self):
+        """Test add_config with a file with wrong yml syntax"""
+        self.cal.add_config("test/config_garbage.yml")
 
     def test_check_stack(self):
         """Test check_stack method"""
