@@ -26,6 +26,9 @@ def get_args():
     parser.add_argument(
         '-f', "--file", type=str, nargs="+",
         help="file with customs commands")
+    parser.add_argument(
+        "-r", "--rounding", type=int,
+        help="choose the precison of rounding, default 0", default=None)
 
     return parser.parse_args()
 
@@ -47,6 +50,8 @@ def main():
             doc += "`{}` : {}\n".format(command, method.__doc__)
         print(doc)
         return
+
+    cal.rounding_value = args.rounding
 
     if not args.ignore_local_config:
         file_path = pathlib.Path("{}/.pol".format(pathlib.Path.home()))
