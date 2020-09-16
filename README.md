@@ -11,9 +11,9 @@ As a command line tool: __pol__
 ```
 ~$ pol
 Reverse polish notation calculator
->5 10 * .
+>5 10 * dec
 50
->0xA 0x6 + ..
+>0xA 0x6 + hex
 0x10
 >q //quit the program
 ~$
@@ -23,7 +23,7 @@ Instructions are [below](#list-of-commands)
 
 pol can also be use as a module
 ```python 
-import rpn_calculator
+import rpn_calc
 cal = rpn_calculator.Calculator()
 cal.evaluate("1 2 + dec")
 # print 3
@@ -45,19 +45,27 @@ This README is the Documentation
 ## [Repo](https://github.com/Allain18/pol)
 The code is on github
 
-## Own commands
+## Config file
 You can write your own command
 
-By default commands from file ~/.pol (if exists) are add to the calculator
+By default commands from file ~/pol.yml (if exists) are add to the calculator
 
 You can add other files with the flag -f/--file
 
-Command must be on the format {name_of_command:command}
+Config files are written in YAML
 
-Example of valid command:
+### Currently supported parameters
+- shortcut: shortcut to commands (see example below)
+- rounding: parameter used to round number (default: 0)
+
+### Example of a valid config file
+```YAML
+shortcut:
+ - double = 2 * # double the last value of the stack
+ - 10* = 10 switch ** # same as 10 {x} **
+rounding: 3
 ```
-double : 2 *
-```
+Command must be on the format {name_of_command = command}
 
 ## Options
 ```
