@@ -18,13 +18,11 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Lint with pylint
+    - name: Installation
       run: |
         pip install pylint
-        pylint --disable=R0904 --reports=n rpn_calc/ test/ get_commands.py setup.py
-    - name: Test with unittest
+        pip install .  
+    - name: Test with unittest and pylint
       run: |
         python -m unittest
-    - name: Install
-      run: |
-        pip install .
+        pylint --disable=R0904 --reports=n rpn_calc/ test/ get_commands.py setup.py
