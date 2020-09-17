@@ -5,7 +5,9 @@ import argparse
 import pathlib
 
 from .calculator import Calculator
-from .version import __version__
+
+
+__version__ = "1.5.4"
 
 
 def get_args():
