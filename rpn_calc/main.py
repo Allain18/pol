@@ -7,7 +7,7 @@ import pathlib
 from .calculator import Calculator
 
 
-__version__ = "1.5.4"
+__version__ = "0.2.0"
 
 
 def get_args():
