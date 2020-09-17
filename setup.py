@@ -1,15 +1,25 @@
 """Setup script for the package"""
 
+import ast
 from setuptools import setup, find_packages
-from rpn_calc import __version__
+
 
 with open("README.md") as readme_file:
     README = readme_file.read()
 
 
+def version():
+    """Return version string."""
+    with open("rpn_calc/main.py") as input_file:
+        for line in input_file:
+            if line.startswith('__version__'):
+                return ast.parse(line).body[0].value.s
+        return "0.0.0"
+
+
 setup(
     name="rpn_calc",
-    version=__version__,
+    version=version(),
     description="RPN calculator",
     long_description=README,
     long_description_content_type="text/markdown",
