@@ -4,7 +4,7 @@ import sys
 import argparse
 import pathlib
 
-from .calculator import Calculator
+import rpn_calc
 
 
 __version__ = "0.2.0"
@@ -44,7 +44,7 @@ def main():
         print("Python {}".format(sys.version))
         return
 
-    cal = Calculator()
+    cal = rpn_calc.Calculator()
 
     if args.list:
         doc = "List of commands available:\n\n"
@@ -67,3 +67,7 @@ def main():
                 cal.add_config(path_file)
 
     cal.loop()
+
+
+if __name__ == "__main__":
+    main()

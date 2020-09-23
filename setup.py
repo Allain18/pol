@@ -10,7 +10,7 @@ with open("README.md") as readme_file:
 
 def version():
     """Return version string."""
-    with open("rpn_calc/main.py") as input_file:
+    with open("rpn_calc/__main__.py") as input_file:
         for line in input_file:
             if line.startswith('__version__'):
                 return ast.parse(line).body[0].value.s
@@ -45,7 +45,7 @@ setup(
     packages=find_packages(exclude=["test"]),
     entry_points={
         "console_scripts": [
-            "pol=rpn_calc.main:main",
+            "pol=rpn_calc.__main__:main",
         ]
     },
     install_requires=[
