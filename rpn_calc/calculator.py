@@ -176,7 +176,11 @@ class Calculator:
                 self.stack.append(value1)
             else:
                 value2 = self.stack.pop()
-                self.stack.append(value2 / value1)
+                res = value2 / value1
+                if res.is_integer():
+                    self.stack.append(int(res))
+                else:
+                    self.stack.append(res)
 
     def int_div(self):
         """Take 2 numbers from the stack, divise them and put the integer result in the stack"""

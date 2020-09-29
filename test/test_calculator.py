@@ -101,6 +101,11 @@ class TestCalculator(unittest.TestCase):
         self.cal.div()
         self.assertEqual(self.cal.stack.pop(), 0.5)
 
+        self.cal.stack.append(-10)
+        self.cal.stack.append(5)
+        self.cal.div()
+        self.assertEqual(self.cal.stack.pop(), -2)
+
         # If div by 0, the stack remains the same
         self.cal.stack.append(5)
         self.cal.stack.append(0)
