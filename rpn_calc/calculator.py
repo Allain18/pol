@@ -476,8 +476,12 @@ class Calculator:
     def ratio(self):
         """Print in integer ratio format the last number of the stack and remove it"""
         if self.check_stack(1, "ratio"):
-            value = self.stack.pop().as_integer_ratio()
-            print("{}/{}".format(value[0], value[1]))
+            value = self.stack.pop()
+            if isinstance(value, float):
+                decimal = value.as_integer_ratio()
+            else:
+                decimal = (value, 1)
+            print("{}/{}".format(decimal[0], decimal[1]))
 
     def print_stack(self):
         """Print the stack"""
