@@ -540,6 +540,23 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.stdout.getvalue(),
                          "Impossible to print a float in octal\n0o12\n0o764\n")
 
+    def test_ratio(self):
+        """Test ratio method"""
+        self.cal.stack.append(10)
+        self.cal.stack.append(-10)
+        self.cal.stack.append(10.5)
+        self.cal.stack.append(-10.25)
+        self.cal.stack.append(0.75)
+
+        self.cal.ratio()
+        self.cal.ratio()
+        self.cal.ratio()
+        self.cal.ratio()
+        self.cal.ratio()
+
+        self.assertEqual(self.stdout.getvalue(),
+                         "3/4\n-41/4\n21/2\n-10/1\n10/1\n")
+
     def test_print_stack(self):
         """Test print_stack"""
         self.cal.stack.append(500)

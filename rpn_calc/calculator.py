@@ -74,6 +74,7 @@ class Calculator:
             "hex": self.print_hex,
             "bin": self.print_bin,
             "oct": self.print_oct,
+            "ratio": self.ratio,
             "s": self.print_stack,
             "clear": self.clear_stack,
             "help": self.help,
@@ -471,6 +472,12 @@ class Calculator:
             else:
                 self.stack.append(i)
                 print("Impossible to print a float in octal")
+
+    def ratio(self):
+        """Print in integer ratio format the last number of the stack and remove it"""
+        if self.check_stack(1, "ratio"):
+            value = self.stack.pop().as_integer_ratio()
+            print("{}/{}".format(value[0], value[1]))
 
     def print_stack(self):
         """Print the stack"""
