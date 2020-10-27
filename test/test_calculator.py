@@ -547,7 +547,9 @@ class TestCalculator(unittest.TestCase):
         self.cal.stack.append(10.5)
         self.cal.stack.append(-10.25)
         self.cal.stack.append(0.75)
+        self.cal.stack.append(10/6)
 
+        self.cal.ratio()
         self.cal.ratio()
         self.cal.ratio()
         self.cal.ratio()
@@ -555,7 +557,7 @@ class TestCalculator(unittest.TestCase):
         self.cal.ratio()
 
         self.assertEqual(self.stdout.getvalue(),
-                         "3/4\n-41/4\n21/2\n-10/1\n10/1\n")
+                         "5/3\n3/4\n-41/4\n21/2\n-10/1\n10/1\n")
 
     def test_print_stack(self):
         """Test print_stack"""

@@ -1,6 +1,7 @@
 """File containing the Calculator object and get_number function"""
 
 import math
+from fractions import Fraction
 import yaml
 
 
@@ -478,10 +479,9 @@ class Calculator:
         if self.check_stack(1, "ratio"):
             value = self.stack.pop()
             if isinstance(value, float):
-                decimal = value.as_integer_ratio()
+                print(Fraction(value).limit_denominator())
             else:
-                decimal = (value, 1)
-            print("{}/{}".format(decimal[0], decimal[1]))
+                print("{}/1".format(value))
 
     def print_stack(self):
         """Print the stack"""
