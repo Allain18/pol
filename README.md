@@ -136,6 +136,10 @@ optional arguments:
 
 `atan` : Replace the last number in the stack with the arc tangent of itself (measured in radians)
 
+`torad` : Convert the last number from degree to radian
+
+`todeg` : Convert the last number from radian to degree
+
 `switch` : Switch the last 2 numbers of the stack
 
 `del` : Delete the last number in the stack
@@ -163,6 +167,8 @@ optional arguments:
 `bin` : Print in binary format the last number of the stack and remove it
 
 `oct` : Print in octal format the last number of the stack and remove it
+
+`ratio` : Print in integer ratio format the last number of the stack and remove it
 
 `s` : Print the stack
 
