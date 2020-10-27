@@ -61,6 +61,8 @@ class Calculator:
             "asin": self.asin,
             "acos": self.acos,
             "atan": self.atan,
+            "torad": self.to_radian,
+            "todeg": self.to_degree,
             "switch": self.switch,
             "del": self.del_,
             "copy": self.copy,
@@ -366,6 +368,18 @@ class Calculator:
         if self.check_stack(1, "atan"):
             value = self.stack.pop()
             self.stack.append(math.atan(value))
+
+    def to_radian(self):
+        """Convert the last number from degree to radian"""
+        if self.check_stack(1, "torad"):
+            value = self.stack.pop()
+            self.stack.append(value / 180 * math.pi)
+
+    def to_degree(self):
+        """Convert the last number from radian to degree"""
+        if self.check_stack(1, "todeg"):
+            value = self.stack.pop()
+            self.stack.append(value * 180 / math.pi)
 
     def switch(self):
         """Switch the last 2 numbers of the stack"""

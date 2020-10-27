@@ -398,6 +398,32 @@ class TestCalculator(unittest.TestCase):
         self.cal.atan()
         self.assertAlmostEqual(self.cal.stack.pop(), - math.pi/4)
 
+    def test_toreg(self):
+        """Test to_radian method"""
+        self.cal.stack.append(180)
+        self.cal.to_radian()
+
+        self.cal.stack.append(-90)
+        self.cal.to_radian()
+
+        self.cal.stack.append(45)
+        self.cal.to_radian()
+
+        self.assertListEqual(self.cal.stack, [math.pi, -math.pi/2, math.pi/4])
+
+    def test_todeg(self):
+        """Test to_degree method"""
+        self.cal.stack.append(math.pi)
+        self.cal.to_degree()
+
+        self.cal.stack.append(-math.pi/2)
+        self.cal.to_degree()
+
+        self.cal.stack.append(math.pi/4)
+        self.cal.to_degree()
+
+        self.assertListEqual(self.cal.stack, [180, -90, 45])
+
     def test_switch(self):
         """Test switch method"""
         self.cal.stack.append(-25)
