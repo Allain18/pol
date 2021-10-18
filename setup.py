@@ -4,13 +4,13 @@ import ast
 from setuptools import setup, find_packages
 
 
-with open("README.md") as readme_file:
+with open("README.md", encoding="UTF-8") as readme_file:
     README = readme_file.read()
 
 
 def version():
     """Return version string."""
-    with open("rpn_calc/__main__.py") as input_file:
+    with open("rpn_calc/__main__.py", encoding="UTF-8") as input_file:
         for line in input_file:
             if line.startswith('__version__'):
                 return ast.parse(line).body[0].value.s

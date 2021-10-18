@@ -107,20 +107,20 @@ class Calculator:
                 self.stack.append(i)
 
             elif isinstance(i, str):
-                if i in self.operation.keys():
+                if i in self.operation:
                     self.operation[i]()
-                elif i in self.custom_commands.keys():
+                elif i in self.custom_commands:
                     self.evaluate(self.custom_commands[i])
                 else:
                     print("Unknow command: {}".format(i))
 
             else:
-                raise "Should never happend"
+                raise Exception("Should never happend")
 
     def add_config(self, existing_path):
         """Add command from existing path
            Command must be on the format "{name_of_command} = {command}" """
-        with open(existing_path, "r") as file:
+        with open(existing_path, "r", encoding="UTF-8") as file:
             try:
                 config = yaml.safe_load(file)
             except yaml.scanner.ScannerError as err:
