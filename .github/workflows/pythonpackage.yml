@@ -25,4 +25,4 @@ jobs:
     - name: Test with unittest and pylint
       run: |
         python -m unittest
-        pylint --disable=R0904 --reports=n rpn_calc/ test/ get_commands.py setup.py
+        pylint rpn_calc/ test/ get_commands.py setup.py
