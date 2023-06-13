@@ -266,6 +266,13 @@ class TestCalculator(unittest.TestCase):
         self.cal.and_()
         self.assertEqual(self.cal.stack.pop(), 7)
 
+        self.cal.stack.append(7)
+        self.cal.stack.append(15.5)
+        self.cal.and_()
+        self.assertEqual(self.cal.stack.pop(), 15.5)
+        self.assertEqual(self.stdout.getvalue(),
+                         "This operation requires 2 int\n")
+
     def test_or(self):
         """Test _or method"""
         self.cal.stack.append(5)
@@ -278,6 +285,13 @@ class TestCalculator(unittest.TestCase):
         self.cal.or_()
         self.assertEqual(self.cal.stack.pop(), 15)
 
+        self.cal.stack.append(7)
+        self.cal.stack.append(15.5)
+        self.cal.and_()
+        self.assertEqual(self.cal.stack.pop(), 15.5)
+        self.assertEqual(self.stdout.getvalue(),
+                         "This operation requires 2 int\n")
+
     def test_xor(self):
         """Test xor method"""
         self.cal.stack.append(5)
@@ -289,6 +303,13 @@ class TestCalculator(unittest.TestCase):
         self.cal.stack.append(15)
         self.cal.xor()
         self.assertEqual(self.cal.stack.pop(), 8)
+
+        self.cal.stack.append(7)
+        self.cal.stack.append(15.5)
+        self.cal.and_()
+        self.assertEqual(self.cal.stack.pop(), 15.5)
+        self.assertEqual(self.stdout.getvalue(),
+                         "This operation requires 2 int\n")
 
     def test_shift_left(self):
         """Test shift_left method"""

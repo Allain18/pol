@@ -290,21 +290,36 @@ class Calculator:
         if self.check_stack(2, "and"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
-            self.stack.append(value1 & value2)
+            if isinstance(value1, int) and isinstance(value2, int):
+                self.stack.append(value1 & value2)
+            else:
+                print("This operation requires 2 int")
+                self.stack.append(value2)
+                self.stack.append(value1)
 
     def or_(self):
         """Take 2 numbers from the stack, apply a bitwise "or" and put the result in the stack"""
         if self.check_stack(2, "or"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
-            self.stack.append(value1 | value2)
+            if isinstance(value1, int) and isinstance(value2, int):
+                self.stack.append(value1 | value2)
+            else:
+                print("This operation requires 2 int")
+                self.stack.append(value2)
+                self.stack.append(value1)
 
     def xor(self):
         """Take 2 numbers from the stack, apply a bitwise "xor" and put the result in the stack"""
         if self.check_stack(2, "xor"):
             value1 = self.stack.pop()
             value2 = self.stack.pop()
-            self.stack.append(value1 ^ value2)
+            if isinstance(value1, int) and isinstance(value2, int):
+                self.stack.append(value1 ^ value2)
+            else:
+                print("This operation requires 2 int")
+                self.stack.append(value2)
+                self.stack.append(value1)
 
     def shift_left(self):
         """Take 2 numbers from the stack, apply a left shift and put the result in the stack"""
