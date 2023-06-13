@@ -174,6 +174,8 @@ optional arguments:
 
 `clear` : Empty the stack
 
+`back` : Put back on the stack the last value that was printed
+
 `help` : Print help; Same as pol --list
 
 `q` : Quit the program

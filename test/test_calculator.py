@@ -22,6 +22,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(get_number("0b10"), 2)
         self.assertEqual(get_number("0x10"), 16)
         self.assertEqual(get_number("0o10"), 8)
+        self.assertEqual(get_number("10.0"), 10)
         self.assertEqual(get_number("0.25"), 0.25)
         self.assertEqual(get_number("0xaaa"), 2730)
         self.assertEqual(get_number("alc"), "alc")
@@ -62,6 +63,17 @@ class TestCalculator(unittest.TestCase):
 
         self.assertEqual(self.stdout.getvalue(),
                          "Not enough numbers in the stack for test command\n")
+
+    def test_add_stack(self):
+        """Test add stack method"""
+        self.cal.add_stack(5)
+        self.assertIsInstance(self.cal.stack.pop(), int)
+
+        self.cal.add_stack(10.5)
+        self.assertIsInstance(self.cal.stack.pop(), float)
+
+        self.cal.add_stack(5.0)
+        self.assertIsInstance(self.cal.stack.pop(), int)
 
     def test_add(self):
         """Test add method"""
@@ -530,6 +542,12 @@ class TestCalculator(unittest.TestCase):
         self.cal.average()
         self.assertAlmostEqual(self.cal.stack.pop(), -1780.515)
 
+        self.cal.stack.extend([2, 4])
+        self.cal.average()
+        val = self.cal.stack.pop()
+        self.assertEqual(val, 3)
+        self.assertIsInstance(val, int)
+
     def test_print_dec(self):
         """Test print method"""
         self.cal.stack.append(5)
@@ -543,7 +561,7 @@ class TestCalculator(unittest.TestCase):
     def test_print_hex(self):
         """Test print_hex method"""
         self.cal.stack.append(500)
-        self.cal.stack.append(10.0)
+        self.cal.stack.append(10)
         self.cal.stack.append(12.2)
 
         self.cal.print_hex()
@@ -556,7 +574,7 @@ class TestCalculator(unittest.TestCase):
     def test_print_bin(self):
         """Test print_bin method"""
         self.cal.stack.append(500)
-        self.cal.stack.append(10.0)
+        self.cal.stack.append(10)
         self.cal.stack.append(2.5)
 
         self.cal.print_bin()
@@ -570,7 +588,7 @@ class TestCalculator(unittest.TestCase):
     def test_print_oct(self):
         """Test print_oct method"""
         self.cal.stack.append(500)
-        self.cal.stack.append(10.0)
+        self.cal.stack.append(10)
         self.cal.stack.append(2.5)
 
         self.cal.print_oct()
@@ -601,7 +619,7 @@ class TestCalculator(unittest.TestCase):
                          "5/3\n3/4\n-41/4\n21/2\n-10/1\n10/1\n")
 
     def test_print_stack(self):
-        """Test print_stack"""
+        """Test print_stack method"""
         self.cal.stack.append(500)
         self.cal.stack.append(10.0)
         self.cal.stack.append(123.123)
@@ -613,6 +631,14 @@ class TestCalculator(unittest.TestCase):
 
         self.assertEqual(self.stdout.getvalue(),
                          "500, 10.0, 123.123\nStack is empty\n")
+
+    def test_back(self):
+        """Test back method"""
+        self.cal.stack.append(500)
+        self.cal.print_dec()
+        self.cal.back()
+        self.assertEqual(self.stdout.getvalue(), "500\n")
+        self.assertEqual(self.cal.stack.pop(), 500)
 
     def test_evaluate(self):
         """Test evaluate method"""
