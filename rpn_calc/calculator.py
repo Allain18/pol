@@ -212,9 +212,12 @@ class Calculator:
     def pow(self):
         """Take 2 numbers from the stack, apply power and put the result in the stack"""
         if self.check_stack(2, "**"):
-            value1 = self.stack.pop()
-            value2 = self.stack.pop()
-            self.stack.append(value2 ** value1)
+            if self.stack[-2] == 0 and self.stack[-1] < 0:
+                print("Impossible to divise by 0")
+            else:
+                value1 = self.stack.pop()
+                value2 = self.stack.pop()
+                self.stack.append(value2 ** value1)
 
     def sqrt(self):
         """Replace the last number in the stack with the square root of itself"""

@@ -173,6 +173,21 @@ class TestCalculator(unittest.TestCase):
         self.cal.pow()
         self.assertEqual(self.cal.stack.pop(), 1)
 
+        self.cal.stack.append(0)
+        self.cal.stack.append(0)
+        self.cal.pow()
+        self.assertEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(0)
+        self.cal.stack.append(-1)
+        self.cal.pow()
+        self.assertEqual(self.cal.stack.pop(), -1)
+
+        self.cal.stack.append(1)
+        self.cal.stack.append(-1)
+        self.cal.pow()
+        self.assertEqual(self.cal.stack.pop(), 1)
+
     def test_sqrt(self):
         """Test sqrt method"""
         self.cal.stack.append(16)
