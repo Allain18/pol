@@ -2,6 +2,7 @@
 
 import math
 from fractions import Fraction
+from decimal import Decimal
 import yaml
 
 
@@ -180,11 +181,11 @@ class Calculator:
                 self.stack.append(value1)
             else:
                 value2 = self.stack.pop()
-                res = value2 / value1
-                if res.is_integer():
-                    self.stack.append(int(res))
+                d_res = Decimal(value2) / Decimal(value1)
+                if d_res.to_integral_value() == d_res:
+                    self.stack.append(int(d_res))
                 else:
-                    self.stack.append(res)
+                    self.stack.append(float(d_res))
 
     def int_div(self):
         """Take 2 numbers from the stack, divise them and put the integer result in the stack"""
