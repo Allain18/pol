@@ -116,7 +116,7 @@ class Calculator:
                     print("Unknow command: {}".format(i))
 
             else:
-                raise Exception("Should never happend")
+                raise RuntimeError("Should never happend")
 
     def add_config(self, existing_path):
         """Add command from existing path
