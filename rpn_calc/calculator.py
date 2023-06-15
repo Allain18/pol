@@ -64,6 +64,13 @@ class Calculator:
             "asin": self.asin,
             "acos": self.acos,
             "atan": self.atan,
+            "atan2": self.atan2,
+            "sinh": self.sinh,
+            "cosh": self.cosh,
+            "tanh": self.tanh,
+            "asinh": self.asinh,
+            "acosh": self.acosh,
+            "atanh": self.atanh,
             "torad": self.to_radian,
             "todeg": self.to_degree,
             "switch": self.switch,
@@ -407,6 +414,49 @@ class Calculator:
         if self.check_stack(1, "atan"):
             value = self.stack.pop()
             self.add_stack(math.atan(value))
+
+    def atan2(self):
+        """Take 2 numbers from the stack, apply a atan2 function and put the result in the stack"""
+        if self.check_stack(2, "atan2"):
+            x_val = self.stack.pop()
+            y_val = self.stack.pop()
+            self.add_stack(math.atan2(y_val, x_val))
+
+    def sinh(self):
+        """Replace the last number in the stack with the hyperbolic sine of itself"""
+        if self.check_stack(1, "sinh"):
+            value = self.stack.pop()
+            self.add_stack(math.sinh(value))
+
+    def cosh(self):
+        """Replace the last number in the stack with the hyperbolic cosine of itself"""
+        if self.check_stack(1, "cosh"):
+            value = self.stack.pop()
+            self.add_stack(math.cosh(value))
+
+    def tanh(self):
+        """Replace the last number in the stack with the hyperbolic tangent of itself"""
+        if self.check_stack(1, "tanh"):
+            value = self.stack.pop()
+            self.add_stack(math.tanh(value))
+
+    def asinh(self):
+        """Replace the last number in the stack with the asinh of itself"""
+        if self.check_stack(1, "asinh"):
+            value = self.stack.pop()
+            self.add_stack(math.asinh(value))
+
+    def acosh(self):
+        """Replace the last number in the stack with the acosh of itself"""
+        if self.check_stack(1, "acosh"):
+            value = self.stack.pop()
+            self.add_stack(math.acosh(value))
+
+    def atanh(self):
+        """Replace the last number in the stack with the atanh of itself"""
+        if self.check_stack(1, "atanh"):
+            value = self.stack.pop()
+            self.add_stack(math.atanh(value))
 
     def to_radian(self):
         """Convert the last number from degree to radian"""

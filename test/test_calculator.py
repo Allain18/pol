@@ -446,6 +446,78 @@ class TestCalculator(unittest.TestCase):
         self.cal.atan()
         self.assertAlmostEqual(self.cal.stack.pop(), - math.pi/4)
 
+    def test_atan2(self):
+        """Test atan2 method"""
+        self.cal.stack.append(0)
+        self.cal.stack.append(1)
+        self.cal.atan2()
+        self.assertAlmostEqual(self.cal.stack.pop(), 0)
+
+        self.cal.stack.append(-1)
+        self.cal.stack.append(-1)
+        self.cal.atan2()
+        self.assertAlmostEqual(self.cal.stack.pop(), -math.pi*3/4)
+
+    def test_sinh(self):
+        """Test sinh method"""
+        self.cal.stack.append(1)
+        self.cal.sinh()
+        self.assertEqual(self.cal.stack.pop(), (math.e**2 - 1)/(2 * math.e))
+
+        self.cal.stack.append(0)
+        self.cal.sinh()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+    def test_cosh(self):
+        """Test cosh method"""
+        self.cal.stack.append(1)
+        self.cal.cosh()
+        self.assertAlmostEqual(self.cal.stack.pop(), (math.e**2 + 1)/(2 * math.e))
+
+        self.cal.stack.append(0)
+        self.cal.cosh()
+        self.assertEqual(self.cal.stack.pop(), 1)
+
+    def test_tanh(self):
+        """Test tanh method"""
+        self.cal.stack.append(1)
+        self.cal.tanh()
+        self.assertAlmostEqual(self.cal.stack.pop(), (math.e**2 - 1)/(math.e**2 + 1))
+
+        self.cal.stack.append(0)
+        self.cal.tanh()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+    def test_asinh(self):
+        """Test asinh method"""
+        self.cal.stack.append((math.e**2 - 1)/(2 * math.e))
+        self.cal.asinh()
+        self.assertAlmostEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(0)
+        self.cal.asinh()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+    def test_acosh(self):
+        """Test acosh method"""
+        self.cal.stack.append((math.e**2 + 1)/(2 * math.e))
+        self.cal.acosh()
+        self.assertAlmostEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(1)
+        self.cal.acosh()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
+    def test_atanh(self):
+        """Test atanh method"""
+        self.cal.stack.append((math.e**2 - 1)/(math.e**2 + 1))
+        self.cal.atanh()
+        self.assertAlmostEqual(self.cal.stack.pop(), 1)
+
+        self.cal.stack.append(0)
+        self.cal.atanh()
+        self.assertEqual(self.cal.stack.pop(), 0)
+
     def test_toreg(self):
         """Test to_radian method"""
         self.cal.stack.append(180)
