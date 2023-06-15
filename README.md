@@ -136,6 +136,20 @@ optional arguments:
 
 `atan` : Replace the last number in the stack with the arc tangent of itself (measured in radians)
 
+`atan2` : Take 2 numbers from the stack, apply a atan2 function and put the result in the stack
+
+`sinh` : Replace the last number in the stack with the hyperbolic sine of itself
+
+`cosh` : Replace the last number in the stack with the hyperbolic cosine of itself
+
+`tanh` : Replace the last number in the stack with the hyperbolic tangent of itself
+
+`asinh` : Replace the last number in the stack with the asinh of itself
+
+`acosh` : Replace the last number in the stack with the acosh of itself
+
+`atanh` : Replace the last number in the stack with the atanh of itself
+
 `torad` : Convert the last number from degree to radian
 
 `todeg` : Convert the last number from radian to degree
